@@ -1,0 +1,104 @@
+-  HARJOITTELE checkbox-tallennus, taulu tehty tietokantaan
+
+- Siirrä kaikki tylykoodaa.fi-osoitteeseen (VALMIIT POHJAT)
++ pitää olla uusi tyhjä
+
+- Tietokanta: insert, update, delete -> TURVALLINEN TALLENNUS
+
+- Kommentointi: yksi rivi + monta riviä (eri .css-tiedostossa)
+
+- LUO KANSIOITA PALVELIMELLE  (opiskelijan kansion nimi=opiskelijan nimi)
+
+________________________________________________________
+
+
+-  tiekoodariksi.fi
+
+-  Eficode-yhteistyö?
+
+----------------------------------------------------------
+
+TUNNARI:
+
+u60224
+
+SALASANA (ftp+tietokanta)
+
+atsjm2020
+
+
+FTP-PALVELIN:
+
+ftp2.shellit.org
+
+
+TIETOKANTA-PALVELIN:
+
+mysql2.shellit.org 
+
+osoite:  phpmyadmin.shellit.org
+server choice:  sql2.shellit.org
+
+OPETTAJAN ESIMERKKITIEDOSTOJEN GIT-osoite:
+
+https://github.com/CM8Solutions/at1.1_tylykoodaa
+
+----------------------------------------
+
+
+NÄYTÄ HTML W2schoolsissa
+(UTF-8 enkooduas ei toimi Netbensissa muissa ku php-tiedostoissa, syy tallennusmuoto UTF-8 (without bom)
+
+____________________________________________________
+
+KUN ALOITETAAN KOODAAMAAN:
+
+1) LUODAAN UUSI NetBeans-projekti (tyhjä)
+- Run As (Remote Connection)
+- Project URL (opettaja):  https://syksy2020.tylykoodaa.fi/
+
+2) TEHDÄÄN REMOTE CONNECTION:
+ftp2.shellit.org
+u60244
+atsjm2020
+initial directory: /
+
+3) 
+UPLOAD DIRECTORY (opettaja): (/syksy2020/ope)
+RUN AS: On Save
+
+4) VAIHEET:
+
+I.	TEHDÄÄN YHDESSÄ html-perusrunko ja siinä perusjuttuja
+o	index.html -> etusivu.html
+o	<title><footer>
+o	<p> Hello World </p>
+o	<a>, <img>, <ul>, <ol>, <li>, <header>, <h1>, <div>
+(kuvista linkki: https://imgur.com/upload)
+o	<form> ja <a> eri tiedostoihin sivu2.html -> HUOMATAAN, ETTEI VOIDA TALLENTAA HTML:llä
+o	CSS-koodia tägien sisään ja erillinen tiedosto
+o	etusivulle sivu3.html (for, while, array, taulukko, emoji)
+o	tehdään sivu2.html ja sivu3.html navinappulat
+o	mallit Cuuliksessa
+
+II.	Luodaan php-tiedosto ja siihen edelliset php:n sisään
+
+
+III. JOKAISEN OMA SETTI
+o	 luodaan index.php, joka johtaa etusivu.php:lle
+New Project -> Run as: Remote Web Site -> Tunnarit + alikansio
+o	harjoitellaan etusivulla open esittämiä juttuja <title>, <footer>, <p>, <img>, <form>, <div>
+o	luodaan ulkoasu.css-tiedosto, jolla tyylitellään edelliset
+o	favicon
+o	luodaan yhteys.php-tiedosto
+o	luodaan tietokanta
+o	kirjautuminen ja session
+
+Jos jää aikaa:
+o	for ja while
+o	array() ja taulukko
+o	emoji
+o	tiedoston lisäys
+o	JavaScript + alert jne. helpot
+o	<Responsiivisuus:   @media screen and (max-width: 500px)
+

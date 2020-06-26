@@ -1,0 +1,78 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17.6.2020, 9:28:52
+    Author     : sjobe
+*/
+
+html{
+    background-color: 	 #f2f2f2;
+}
+
+body {
+    font-family: 'Architects Daughter';
+}
+
+h1{
+    color: #ff0099;
+    
+}
+
+h2{
+    color: #ff0099;
+    
+}
+
+a{
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover{
+    font-weight: bold;
+}
+
+div{
+    padding-left: 20px;
+}
+
+header{
+    padding-left: 20px;
+}
+
+.kuva{
+    
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    
+}
+
+footer{
+    color: green;
+    font-size: 0.9em;
+      margin-top: 20px;
+    border: 1px solid  #333333;
+ padding: 10px;
+ text-align: center;
+ font-weight: bold;
+}
+
+.tallennusnappi{
+    
+    background-color: #ff0099;
+    border-radius: 25px;
+    padding: 4px 6px;
+    font-weight: bold;
+    
+}
+
+.lomake{
+    border: 1px solid  #333333;
+    width: 25%;
+    
+    padding: 20px 10px 30px 20px; 
+}
