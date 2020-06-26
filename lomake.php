@@ -39,16 +39,16 @@ include("header.php");
  <br><br>
  <p> Mitkä koodikielistä on sinulle tuttuja?</p>
  
-<input type="checkbox" id="html" name="html" value="html">
+<input type="checkbox" id="html" name="kielet[]" value="html">
 <label for="html">HTML</label><br>
 
-<input type="checkbox" id="php" name="php"  value="php">
+<input type="checkbox" id="php" name="kielet[]"  value="php">
 <label for="php">PHP</label><br>
 
-<input type="checkbox" id="css" name="css" value="css">
+<input type="checkbox" id="css" name="kielet[]" value="css">
 <label for="css">CSS</label><br>
 
-<input type="checkbox" id="javascript" name="javascript" value="javascript">
+<input type="checkbox" id="javascript" name="kielet[]" value="javascript">
 <label for="javascript">JavaScript</label><br>
 
 <br>

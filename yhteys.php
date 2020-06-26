@@ -1,6 +1,6 @@
 <?php
 
-$db = mysqli_connect('mysql1.shellit.org', 'u38085', 'Mariann3', 'u38085B2');
+$db = mysqli_connect('mysql2.shellit.org', 'u60224', 'atsjm2020', 'u60224B1');
 
 
 if (!$db){

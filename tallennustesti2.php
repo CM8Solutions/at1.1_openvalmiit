@@ -4,17 +4,14 @@
             if(isset($_POST['submit'])){
             include("yhteys.php");
             if(isset($_POST['boxes'])){
-            $t1=implode(',', $_POST['boxes']);
-            
-            $success = $db -> query("insert into checkbox (time) values ('2am')"); 
-             $db->query("insert into checkbox (time) values ('" . $t1 . "')");
+         
+            $valinnat = implode(',', $_POST['boxes']);
+            $success = $db->query("insert into boxes (time) values ('" . $valinnat . "')");
                 
-                if($success){
-                    echo "insert success";
-                }else{
-                    echo "error in inserting";
+                if(!$success){
+                    echo "<p> Virhe lisäämisessä! </p>";
                     echo'<br>';
-                      echo("Error description: " . $db -> error);
+                      echo("<p>Virheen kuvaus: " . $db -> error."</p>");
                 }
           }
 

@@ -1,7 +1,4 @@
--  HARJOITTELE checkbox-tallennus, taulu tehty tietokantaan
-
-- Siirrä kaikki tylykoodaa.fi-osoitteeseen (VALMIIT POHJAT)
-+ pitää olla uusi tyhjä
+- Lomakkeen tallennus
 
 - Tietokanta: insert, update, delete -> TURVALLINEN TALLENNUS
 
