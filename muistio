@@ -1,4 +1,6 @@
-- Lomakkeen tallennus
+- kayttajat.php ei toimi
+
+- tsekkaa ylempi ja lomake (+sposti)
 
 - Tietokanta: insert, update, delete -> TURVALLINEN TALLENNUS
 

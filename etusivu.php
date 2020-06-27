@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -13,8 +13,8 @@ echo'<!DOCTYPE html>
         <title>HARJOITELLAAN KOODAUSTA</title>';
 
 include("header.php");
-   
-    echo'</head>
+
+echo'</head>
     <body>
   
          <header style="border: 1px solid  #333333;">
@@ -50,13 +50,18 @@ include("header.php");
 </ol>  
 
 <br>
-          <h2>Linkit toisille sivuille (painikkeet): </h2>
+          <h2>Linkit toisille sivuille: </h2>
                   <a href="lomake.php"><u>Tämä linkki vie sivulle lomake.php</u></a>
-                
+      <br> <br>           
+ <h2>Tallennetut käyttäjät: </h2>
+                  <a href="kayttajat.php" class="kayttajat" >Käyttäjät</a>
+
+<br><br>
+
         </div>';
-        
+
 include("footer.php");
 
-echo    '</body>
+echo '</body>
 </html>';
 

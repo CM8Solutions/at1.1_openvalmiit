@@ -69,10 +69,25 @@ footer{
     font-weight: bold;
     
 }
-
+.tallennusnappi:hover{
+    cursor:pointer;
+}
 .lomake{
     border: 1px solid  #333333;
     width: 25%;
     
     padding: 20px 10px 30px 20px; 
+}
+
+.kayttajat{
+      background-color: #555555;
+      border: 2px solid black;
+ 
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.kayttajat:hover{
+    cursor: pointer;
 }
