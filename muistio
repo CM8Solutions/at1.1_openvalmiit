@@ -1,10 +1,8 @@
-- kayttajat.php ei toimi
-
-- tsekkaa ylempi ja lomake (+sposti)
-
 - Tietokanta: insert, update, delete -> TURVALLINEN TALLENNUS
 
 - Kommentointi: yksi rivi + monta riviä (eri .css-tiedostossa)
+
+- Responsiivisuus
 
 - LUO KANSIOITA PALVELIMELLE  (opiskelijan kansion nimi=opiskelijan nimi)
 

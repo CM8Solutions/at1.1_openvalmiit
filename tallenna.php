@@ -12,9 +12,9 @@ echo'<!DOCTYPE html>
         <title>Tietojen tallennus</title>';
 include("header.php");
 include("yhteys.php");
-echo'</head>
+
   
-    <body>
+echo'    <body>
   
          <header>
         <h1>Tietojen tallennus tietokantaan. </h1>
@@ -30,7 +30,7 @@ $krypattu_salasana = md5($suola . $paivays);
 
 
 $etunimi = $_POST[etunimi];
-$sukunimi = $_POST[etunimi];
+$sukunimi = $_POST[sukunimi];
 $sposti = $_POST[sposti];
 $tunnus = $_POST[tunnus];
 $salasana = $krypattu_salasana;

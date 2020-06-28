@@ -10,6 +10,8 @@ if (!$db){
 die();
     
 }
-else
+else{
+    
     mysqli_set_charset($db, "utf8");
+}
 

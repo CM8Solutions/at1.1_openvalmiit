@@ -16,6 +16,26 @@ body {
     font-family: 'Architects Daughter';
 }
 
+table{
+    border: 1px solid black;
+    
+}
+
+table th{
+    color: blue;
+    border: 1px solid grey;
+       padding: 4px 6px;
+}
+
+table td{
+    border: 1px solid grey;
+    padding: 4px 6px;
+}
+
+img{
+    max-width: 100%;
+}
+
 h1{
     color: #ff0099;
     
@@ -41,6 +61,11 @@ div{
 
 header{
     padding-left: 20px;
+}
+
+.vali{
+
+margin-top:30px !important;
 }
 
 .kuva{
@@ -71,12 +96,17 @@ footer{
 }
 .tallennusnappi:hover{
     cursor:pointer;
+    background-color: white;
+    color: #ff0099;
+    
 }
 .lomake{
-    border: 1px solid  #333333;
+
     width: 25%;
     
-    padding: 20px 10px 30px 20px; 
+}
+.lomake fieldset{
+    padding: 5px 5px 20px 20px;
 }
 
 .kayttajat{

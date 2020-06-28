@@ -14,8 +14,8 @@ echo'<!DOCTYPE html>
 
 include("header.php");
 
-echo'</head>
-    <body>
+
+   echo' <body>
   
          <header style="border: 1px solid  #333333;">
         <h1>Harjoitellaan koodausta 	&#129321 </h1>
@@ -56,7 +56,7 @@ echo'</head>
  <h2>Tallennetut käyttäjät: </h2>
                   <a href="kayttajat.php" class="kayttajat" >Käyttäjät</a>
 
-<br><br>
+<div class="vali"></div>
 
         </div>';
 

@@ -7,9 +7,9 @@ echo'<!DOCTYPE html>
         <title>Esimerkkilomake</title>';
 include("header.php");
     
-    echo'</head>
   
-    <body>
+  
+  echo'  <body>
   
          <header>
         <h1>Harjoitellaan tallentamaan seuraavan esimerkkilomakkeen tiedot tietokantaan. </h1>
@@ -17,10 +17,11 @@ include("header.php");
     </header>
         
         <div>
-            <p><a href="etusivu.php"> &#8617 &nbsp  Palaa takaisin </a></p>
+            <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>
             <br>
             <form action="tallenna.php" method="POST" class="lomake">
-             
+            <fieldset>
+             <legend>Täytä tiedot</legend>
                 <p> Etunimi: </p>
                 <input type="text" name="etunimi">
                 <br>
@@ -36,7 +37,7 @@ include("header.php");
                 <p> Salasana</p>               
                  <input type="password" name="salasana">
  
- <br><br>
+ <div class="vali"></div>
  <p> Mitkä koodikielistä on sinulle tuttuja?</p>
  
 <input type="checkbox" id="html" name="kielet[]" value="html">
@@ -55,9 +56,9 @@ include("header.php");
 
 
  <p>Kerro koodauskokemuksistasi</p>
- <textarea name="kuvaus"> </textarea>
+ <textarea name="kuvaus"></textarea>
  
-<br><br>
+<div class="vali"></div>
  <p>Asteikolla 1-5, kuinka kokenut koodari olet? <br>
 (1=aloittelija, 5=ammattilainen) 
 </p>
@@ -73,11 +74,11 @@ for ($i = 1; $i <= 5; $i++) {
 
 echo'</select>
   
-<br><br><br>
+<div class="vali"></div>
 
 
 <input type="submit" value="Tallenna" class="tallennusnappi">
-
+</fieldset>
 </form>
         </div>';
 
