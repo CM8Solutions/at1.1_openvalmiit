@@ -1,4 +1,10 @@
-- Tietokanta: insert, update, delete -> TURVALLINEN TALLENNUS
+- Tietokanta: update, delete -> KESKEN!
+
+- tekstikenttä muokkauksessa!
+
+- formien legendin ulkoasu!
+
+- Yhtenäistä kieli
 
 - Kommentointi: yksi rivi + monta riviä (eri .css-tiedostossa)
 
@@ -42,6 +48,13 @@ https://github.com/CM8Solutions/at1.1_tylykoodaa
 
 ----------------------------------------
 
+JOS HEADER LOCATION EI TOIMI:
+
+<?php pitää olla ihan alussa
+ + 
+ob_start() alkuun
+
+--------------------------------------------------
 
 NÄYTÄ HTML W2schoolsissa
 (UTF-8 enkooduas ei toimi Netbensissa muissa ku php-tiedostoissa, syy tallennusmuoto UTF-8 (without bom)
