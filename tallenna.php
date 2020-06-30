@@ -34,9 +34,10 @@ $sukunimi = $_POST[sukunimi];
 $sposti = $_POST[sposti];
 $tunnus = $_POST[tunnus];
 $salasana = $krypattu_salasana;
-$kielet = implode(',', $_POST['kielet']);
-$kokemus_sanallinen = nl2br($_POST[kuvaus]);
-$kokemus_arvio = $_POST[arvio];
+$kokemus_sanallinen=$_POST[kokemus_sanallinen];
+$kokemus_sanallinen= nl2br($kokemus_sanallinen);
+$kielet = implode(', ', $_POST['kielet']);
+$kokemus_arvio = $_POST[kokemus_arvio];
 
 
 $stmt = $db->prepare("INSERT INTO kayttajat (etunimi, sukunimi, sposti, tunnus, salasana, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");

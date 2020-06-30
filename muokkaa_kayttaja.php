@@ -65,21 +65,47 @@ if (!$haku) {
                  <input type="password" name="salasana">
  
  <div class="vali"></div>
- <p> Käyttäjälle tutut koodikielet: </p>
- 
-<input type="checkbox" id="html" name="kielet[]" value="html">
-<label for="html">HTML</label><br>
+ <p> Käyttäjälle tutut koodikielet: </p>';
 
-<input type="checkbox" id="php" name="kielet[]"  value="php">
-<label for="php">PHP</label><br>
+        
+  if (strpos($koodikielet, 'html')!==false) {
+      echo'<input type="checkbox" id="html" name="kielet[]" value="html" checked>';
+  }
+  else{
+      echo'<input type="checkbox" id="html" name="kielet[]" value="html">';
+  }
 
-<input type="checkbox" id="css" name="kielet[]" value="css">
-<label for="css">CSS</label><br>
+echo'<label for="html">HTML</label><br>';  
 
-<input type="checkbox" id="javascript" name="kielet[]" value="javascript">
-<label for="javascript">JavaScript</label><br>
 
-<br>
+  if (strpos($koodikielet, 'php') !==false) {
+      echo'<input type="checkbox" id="php" name="kielet[]" value="php" checked>';
+  }
+  else{
+      echo'<input type="checkbox" id="php" name="kielet[]" value="php">';
+  }
+echo'<label for="php">PHP</label><br>';
+
+  
+  if (strpos($koodikielet, 'css') !==false ) {
+      echo'<input type="checkbox" id="css" name="kielet[]" value="css" checked>';
+  }
+  else{
+      echo'<input type="checkbox" id="css" name="kielet[]" value="css">';
+  }  
+  echo'<label for="css">CSS</label><br>';
+  
+  
+  if (strpos($koodikielet, 'javascript') != false) {
+      echo'<input type="checkbox" id="javascript" name="kielet[]" value="javascript" checked>';
+  }
+  else{
+      echo'<input type="checkbox" id="javascript" name="kielet[]" value="javascript">';
+  }
+  
+echo'<label for="javascript">JavaScript</label><br>';
+
+echo'<br>
 
 
  <p>Käyttäjän koodauskokemukset</p>
@@ -120,8 +146,10 @@ if (!$haku) {
         echo'<form action = "poista.php" method = "post">';
         echo'<input type = "hidden" name = "id" value = '.$id.'>';
         echo'<input type="hidden" name="sposti" value='.$sposti.'>';
-        echo'<input type = "submit" value = "Kyllä" style = "margin-right: 20px" name = "valinta" class="nappula">';
-        echo'<input type = "submit" value = "En" name = "valinta" class="nappula">';
+        echo'<button type = "submit" value = "kylla" style = "margin-right: 20px" name = "valinta" class="nappula">Kyllä</button>';
+      
+        echo'<button type = "submit" value = "en" name = "valinta" class="nappula">En</button>';
+        
         echo'</form>';
     }
 }

@@ -56,14 +56,14 @@ include("header.php");
 
 
  <p>Kerro koodauskokemuksistasi</p>
- <textarea name="kuvaus"></textarea>
+ <textarea name="kokemus_sanallinen"></textarea>
  
 <div class="vali"></div>
  <p>Asteikolla 1-5, kuinka kokenut koodari olet? <br>
 (1=aloittelija, 5=ammattilainen) 
 </p>
 
- <select name="arvio">
+ <select name="kokemus_arvio">
 
  <option value="valitse" name="valitse" selected>Valitse</option>';
 

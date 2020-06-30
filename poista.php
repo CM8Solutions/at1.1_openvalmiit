@@ -17,11 +17,11 @@ include("yhteys.php");
 
 echo'<div>';
 
-if($_POST[valinta]=="En"){
+if($_POST[valinta]=="en"){
    
     header("location: kayttajat.php");
 }
-else if($_POST[valinta]=="Kyllä"){
+else if($_POST[valinta]=="kylla"){
 
     $poisto = $db -> query("delete from kayttajat where id='".$_POST[id]."'");
     
