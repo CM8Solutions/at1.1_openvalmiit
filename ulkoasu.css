@@ -113,6 +113,24 @@ footer{
 .lomake fieldset{
     padding: 5px 5px 20px 20px;
 }
+.lomake fieldset legend{
+    color: #514E61;
+    border-top: 2px solid #514E61;
+    border-left: 2px solid #514E61;
+    border-right: 2px solid #514E61;
+      border-bottom: 2px solid #514E61;
+    border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+
+    padding: 0px 8px 3px 8px;
+    box-shadow: -0px -1px 2px #514E61;
+    -moz-box-shadow:-0px -1px 2px #514E61;
+    -webkit-box-shadow:-0px -1px 2px #514E61;
+   
+    font-size: 1.1em;
+    font-weight: bold;
+}
 
 .kayttajat{
       background-color: #555555;

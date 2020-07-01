@@ -1,14 +1,6 @@
-- Tietokanta: update, delete -> KESKEN!
-
 - jos lomakkeessa Valitse
 
-- tekstikenttä muokkauksessa!
-
-- formien legendin ulkoasu! (javascript)
-
-- salasanan vahvistus!
-
-- Millon === tai !== 
+- salasanan varmistus ja muut lomakkeen puutteet!
 
 - Yhtenäistä kieli
 

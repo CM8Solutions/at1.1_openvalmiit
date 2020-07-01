@@ -43,9 +43,9 @@ if (!$haku) {
 
     if (isset($_POST[muokkaa])) {
 
-        echo'<form action="muokkaa_kayttajan_tiedot.php" method="post">';
+        echo'<form action="muokkaa_kayttajan_tiedot.php" method="post" class="lomake">';
         echo'<fieldset>';
-        echo'<legend>Muokkaa käyttäjän tietoja:</legend>';
+        echo'<legend>Muokkaa käyttäjän tietoja</legend>';
         echo'<p><a href="kayttajat".php"> &#8617 &nbsp  Palaa takaisin </a></p>';
 
 
@@ -109,14 +109,14 @@ echo'<br>
 
 
  <p>Käyttäjän koodauskokemukset</p>
- <textarea name="kuvaus">'.$kokemus_sanallinen.'</textarea>
+ <textarea name="kokemus_sanallinen">'.$kokemus_sanallinen.'</textarea>
  
 <div class="vali"></div>
  <p>Asteikolla 1-5, kuinka kokenut koodari käyttäjä on <br>
 (1=aloittelija, 5=ammattilainen) 
 </p>
 
- <select name="arvio">
+ <select name="kokemus_arvio">
 
  <option value'.$kokemus_arvio.'  name='.$kokemus_arvio.' selected>'.$kokemus_arvio.'</option>';
 
@@ -129,7 +129,7 @@ echo'<br>
 
 
         echo'</select>
-  
+<input type="hidden" name="id" value='.$id.'>  
 <div class="vali"></div>
 
 
@@ -139,7 +139,7 @@ echo'<br>
         
         echo'</fieldset></form>';
         
-    } else {
+    } else if(isset($_POST[poista])) {
         
         echo'<h3>Oletko varma, että haluat poistaa käyttäjän '.$etunimi. ' ' .$sukunimi.'</h3>';
 
@@ -151,6 +151,13 @@ echo'<br>
         echo'<button type = "submit" value = "en" name = "valinta" class="nappula">En</button>';
         
         echo'</form>';
+    }
+    
+    else{
+        echo'<h3>Palaa takaisin ensin, jos haluat päivittää sivun.</h3> ';
+        
+   
+  echo' <p><a href="kayttajat.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
     }
 }
 

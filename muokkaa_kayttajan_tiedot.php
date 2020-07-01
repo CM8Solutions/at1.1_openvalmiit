@@ -21,22 +21,44 @@ $etunimi = $_POST[etunimi];
 $sukunimi = $_POST[sukunimi];
 $sposti = $_POST[sposti];
 $tunnus = $_POST[tunnus];
+$kielet = implode(',', $_POST['kielet']);
+$kokemus_arvio = $_POST[kokemus_arvio];
+$kokemus_sanallinen = $_POST[kokemus_sanallinen];
+$id  = $_POST[id];
+
 
 //HHUOM JOS TYHJÄ, NIIN EI MUUTETA, PITÄÄ TSEKATA!
+
+if($_POST[salasana]!=""){
+    
+    $suola = "atsjm2020";
+$paivays = "" . date("h:i:s") . "";
+$krypattu_salasana = md5($suola . $paivays);
 $salasana = $krypattu_salasana;
-$kielet = implode(',', $_POST['kielet']);
-$kokemus_sanallinen = nl2br($_POST[kuvaus]);
-$kokemus_arvio = $_POST[arvio];
 
+$stmt = $db->prepare("UPDATE kayttajat SET etunimi=?,  sukunimi=?,  sposti=?, tunnus=?, salasana=?, koodikielet=?, koodauskokemus_sanallinen=?, koodauskokemus_arvio=? WHERE id=?");
 
-$stmt = $db->prepare("UPDATE kayttajat SET (etunimi, sukunimi, sposti, tunnus, salasana, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+}
+else{
 
+$stmt = $db->prepare("UPDATE kayttajat SET etunimi=?, sukunimi=?, sposti=?, tunnus=?, koodikielet=?, koodauskokemus_sanallinen=?, koodauskokemus_arvio=? WHERE id=?");
+    
+
+}
 
 if (false === $stmt) {
 
     die('<p>Tallennus (prepare) epäonnistui. <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
 } else {
-    $bp = $stmt->bind_param("sssssssi", $etunimi, $sukunimi, $sposti, $tunnus, $salasana, $kielet, $kokemus_sanallinen, $kokemus_arvio);
+    if($_POST[salasana]!=""){
+           $bp = $stmt->bind_param("sssssssii", $etunimi, $sukunimi, $sposti, $tunnus, $salasana, $kielet, $kokemus_sanallinen, $kokemus_arvio, $id);
+ 
+    }
+    else{
+           $bp = $stmt->bind_param("ssssssii", $etunimi, $sukunimi, $sposti, $tunnus, $kielet, $kokemus_sanallinen, $kokemus_arvio, $id);
+ 
+    }
+    
 
     if (false === $bp) {
         die('<p>Tallennus (bind_param()) epäonnistui. <br>Syy: ' . htmlspecialchars($stmt->error) . '</p>');
@@ -56,11 +78,11 @@ if (false === $stmt) {
             $headers .= "X-Mailer: PHP" . phpversion() . "\r\n";
 
 
-            $otsikko = "Rekisteröinnin vahvistustiedot sivustolta syksy2020.tylykoodaa.fi/ope";
+            $otsikko = "Tietojasi on muutettu sivustolla syksy2020.tylykoodaa.fi/ope";
             $otsikko = "=?UTF-8?B?" . base64_encode($otsikko) . "?=";
 
 
-            $viesti = 'Tietosi on tallennettu kurssin AT1.1 Internet ja verkkosivut tietokantaan.<br><br><em>Tähän viestiin ei voi vastata.</em>';
+            $viesti = 'Tiedoksesi, että tietojasi AT1.1 Internet ja verkkosivut tietokannassa on muutettu.<br><br><em>Tähän viestiin ei voi vastata.</em>';
             $viesti = str_replace("\n.", "\n..", $viesti);
 
 
@@ -78,7 +100,7 @@ if (false === $stmt) {
 }
 
 $stmt->close();
-           echo' <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
+           echo' <p><a href="kayttajat.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
 echo'</div>';
 
 include('footer.php');

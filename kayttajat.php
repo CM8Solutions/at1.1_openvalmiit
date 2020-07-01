@@ -53,6 +53,8 @@ else{
 
 
         $kokemus_sanallinen = $rivi[koodauskokemus_sanallinen];
+        $kokemus_sanallinen = str_replace("\n", "<br />", $kokemus_sanallinen);
+
         $kokemus_arvio = $rivi[koodauskokemus_arvio];
 
         echo'<tr><td>' . $etunimi . '</td><td>' . $sukunimi . '</td><td>' . $sposti . '</td><td>' . $tunnus . '</td><td>' . $koodikielet . '</td><td>' . $kokemus_sanallinen . '</td><td>' . $kokemus_arvio . '</td>';

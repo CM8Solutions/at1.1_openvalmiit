@@ -35,7 +35,6 @@ $sposti = $_POST[sposti];
 $tunnus = $_POST[tunnus];
 $salasana = $krypattu_salasana;
 $kokemus_sanallinen=$_POST[kokemus_sanallinen];
-$kokemus_sanallinen= nl2br($kokemus_sanallinen);
 $kielet = implode(', ', $_POST['kielet']);
 $kokemus_arvio = $_POST[kokemus_arvio];
 
