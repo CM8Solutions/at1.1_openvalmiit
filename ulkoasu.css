@@ -107,7 +107,7 @@ footer{
 }
 .lomake{
 
-    width: 25%;
+    width: 40%;
     
 }
 .lomake fieldset{
@@ -132,6 +132,7 @@ footer{
     font-weight: bold;
 }
 
+
 .kayttajat{
       background-color: #555555;
       border: 2px solid black;
@@ -143,7 +144,27 @@ footer{
 
 .kayttajat:hover{
     cursor: pointer;
+    background-color: white;
+    color:  #555555;
 }
+
+
+.kirjautuminen{
+      background-color: green;
+      border: 2px solid black;
+ 
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.kirjautuminen:hover{
+    cursor: pointer;
+    background-color: white;
+    color:  green;
+}
+
+
 
 .nappula{
     

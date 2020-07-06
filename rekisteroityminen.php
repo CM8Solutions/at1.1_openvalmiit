@@ -4,7 +4,7 @@ echo'<!DOCTYPE html>
 
 <html>
     <head>
-        <title>Esimerkkilomake</title>';
+        <title>Rekisteröityminen</title>';
 include("header.php");
     
   
@@ -12,7 +12,7 @@ include("header.php");
   echo'  <body>
   
          <header>
-        <h1>Harjoitellaan tallentamaan seuraavan esimerkkilomakkeen tiedot tietokantaan. </h1>
+        <h1>Rekisteröityminen </h1>
         
     </header>
         
@@ -22,21 +22,25 @@ include("header.php");
             <form action="tallenna.php" method="POST" class="lomake">
             <fieldset>
              <legend>Täytä tiedot</legend>
-                <p> Etunimi: </p>
+             
+             <p style="font-size: 1em; font-weight: bold; color: red">Tähdellä * merkityt tiedot ovat pakollisia.</p>
+                <p> Etunimi: <b style="margin-left: 10px; color: red">*</b></p>
                 <input type="text" name="etunimi">
                 <br>
-                <p> Sukunimi: </p>
+                <p> Sukunimi:  <b style="margin-left: 10px; color: red">*</b></p>
                 <input type="text" name="sukunimi">
                 <br>
-                <p> Sähköpostiosoite:</p>
+                <p> Sähköpostiosoite: <b style="margin-left: 10px; color: red">*</b></p>
                 <input type="email" name="sposti">
                 <br>
-                <p>Käyttäjätunnus:</p>          
+                <p>Käyttäjätunnus: <b style="margin-left: 10px; color: red">*</b></p>          
                  <input type="text" name="tunnus">
                 <br>
-                <p> Salasana</p>               
+                <p>Anna salasana: <b style="margin-left: 10px; color: red">*</b> </p>               
                  <input type="password" name="salasana">
  
+  <p>Anna salasana uudelleen:  <b style="margin-left: 10px; color: red">*</b></p>               
+                 <input type="password" name="salasana2">
  <div class="vali"></div>
  <p> Mitkä koodikielistä on sinulle tuttuja?</p>
  
@@ -55,11 +59,11 @@ include("header.php");
 <br>
 
 
- <p>Kerro koodauskokemuksistasi</p>
+ <p>Kerro koodauskokemuksistasi <b style="margin-left: 10px; color: red">*</b></p>
  <textarea name="kokemus_sanallinen"></textarea>
  
 <div class="vali"></div>
- <p>Asteikolla 1-5, kuinka kokenut koodari olet? <br>
+ <p>Asteikolla 1-5, kuinka kokenut koodari olet?  <b style="margin-left: 10px; color: red">*</b><br>
 (1=aloittelija, 5=ammattilainen) 
 </p>
 
