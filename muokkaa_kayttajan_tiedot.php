@@ -32,8 +32,7 @@ $id  = $_POST[id];
 if($_POST[salasana]!=""){
     
     $suola = "atsjm2020";
-$paivays = "" . date("h:i:s") . "";
-$krypattu_salasana = md5($suola . $paivays);
+$krypattu_salasana = md5($suola . $_POST[salasana]);
 $salasana = $krypattu_salasana;
 
 $stmt = $db->prepare("UPDATE kayttajat SET etunimi=?,  sukunimi=?,  sposti=?, tunnus=?, salasana=?, koodikielet=?, koodauskokemus_sanallinen=?, koodauskokemus_arvio=? WHERE id=?");
@@ -65,7 +64,8 @@ if (false === $stmt) {
     } else {
         $tallennus = $stmt->execute();
 
-        if (false === $tallennus) {
+   
+     if (false === $tallennus) {
             die('<p>Tallennus (execute()) epäonnistui. <br>Syy: ' . htmlspecialchars($stmt->error) . '</p>');
         } else {
             echo'<p>Tiedot tallennettu onnistuneesti!</p>';

@@ -1,6 +1,17 @@
-- jos tunnus on jo rekisteröity
+- TARKISTA UUDELLEEN AKTIVOINTI JA VIRHEET
+- kaikkia tietokantajuttuja pitää siistiä!
 
-- unohtunut salasana
+MIHIN ERROR? ehkä jos execute() epäonnistuu
+
+- tsekkaa käyttäjän tietojen muokkaus, erityisesti salasanan osalta! onko järkevää?
+
+- ei stmt! + BINARY?!
+
+- siivottu sposti ei toimi!
+
+- lomakkeen kenttien pituus ulkoasu.css:ään
+
+- omat tiedot jos on kirjautunut sisään
 
 - favicon
 

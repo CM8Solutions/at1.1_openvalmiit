@@ -4,7 +4,7 @@ echo'<!DOCTYPE html>
 
 <html>
     <head>
-        <title>Kirjautuminen</title>';
+        <title>Salasanan vaihto</title>';
 include("header.php");
     
   
@@ -12,14 +12,14 @@ include("header.php");
   echo'  <body>
   
          <header>
-        <h1>Kirjaudu sisään: </h1>
+        <h1>Vaihda salasanasi: </h1>
         
     </header>
         
         <div>
             <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>
             <br>
-            <form action="tarkistus.php" method="POST" class="lomake">
+            <form action="aktivoinnin_tarkistus.php" method="POST" class="lomake">
             <fieldset>
              <legend>Täytä tiedot</legend>
              
@@ -30,13 +30,12 @@ include("header.php");
                 <br>
                 <p>Anna salasana: <b style="margin-left: 10px; color: red">*</b> </p>               
                  <input type="password" name="salasana">
-
+  <p>Anna salasana uudelleen:  <b style="margin-left: 10px; color: red">*</b></p>               
+                 <input type="password" name="salasana2">
 <br><br>
 
 <input type="submit" value="Kirjaudu" class="tallennusnappi">
-<br><br>
 
-<a href="unohtunut_tunnus.php"><u>Unohditko tunnuksen tai salasanan?</u></a>;
 
 </fieldset>
 </form>
