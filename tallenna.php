@@ -80,15 +80,18 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
                 echo' <p><a href="rekisteroityminen.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
             } else {
 
-                $haku2 = $db->prepare("INSERT INTO kayttajat (etunimi, sukunimi, sposti, tunnus, salasana, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                $tallennus = $db->prepare("INSERT INTO kayttajat (etunimi, sukunimi, sposti, tunnus, salasana, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-                $haku2->bind_param("sssssssi", $etunimi, $sukunimi, $sposti, $tunnus, $salasana, $kielet, $kokemus_sanallinen, $kokemus_arvio);
-
-
-                $haku2->execute();
+                $tallennus->bind_param("sssssssi", $etunimi, $sukunimi, $sposti, $tunnus, $salasana, $kielet, $kokemus_sanallinen, $kokemus_arvio);
 
 
-                echo'<p>Tiedot tallennettu onnistuneesti!</p>';
+                $tallennus_onnistui = $tallennus->execute();
+
+
+     if (false === $tallennus_onnistui) {
+            die('<p>Tallennus (execute()) epäonnistui. <br>Syy: ' . htmlspecialchars($stmt->error) . '</p>');
+        } else {
+                         echo'<p>Tiedot tallennettu onnistuneesti!</p>';
 
                 $headers .= "Organization: AT1.1 Internet ja verkkosivut\r\n";
                 $headers .= "MIME-Version: 1.0" . "\r\n";
@@ -105,25 +108,25 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
                 $viesti = 'Tietosi on tallennettu kurssin AT1.1 Internet ja verkkosivut tietokantaan.<br><br><em>Tähän viestiin ei voi vastata.</em>';
                 $viesti = str_replace("\n.", "\n..", $viesti);
 
-
-                $siivottu_sposti = mysqli_real_escape_string($db, $sposti);
-                $lahetys = mail($siivottu_sposti, $otsikko, $viesti, $headers);
+                $lahetys = mail($sposti, $otsikko, $viesti, $headers);
 
                 if ($lahetys) {
                     echo'<p> Viesti lähetetty!</p>';
                 } else {
-                    echo'<p>Viestiä ei pystytty lähettämään!' . $siivottu_sposti;
+                    echo'<p>Viestiä ei pystytty lähettämään!' . $sposti;
                     print_r(error_get_last());
                 }
 
 
 
 
-                $haku2->close();
-
-
                 echo' <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
             }
+           
+
+                $tallennus->close();
+        }
+   
         }
     }
 }

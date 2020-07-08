@@ -35,26 +35,26 @@ if($_POST[salasana]!=""){
 $krypattu_salasana = md5($suola . $_POST[salasana]);
 $salasana = $krypattu_salasana;
 
-$stmt = $db->prepare("UPDATE kayttajat SET etunimi=?,  sukunimi=?,  sposti=?, tunnus=?, salasana=?, koodikielet=?, koodauskokemus_sanallinen=?, koodauskokemus_arvio=? WHERE id=?");
+$muokkaus = $db->prepare("UPDATE kayttajat SET etunimi=?,  sukunimi=?,  sposti=?, tunnus=?, salasana=?, koodikielet=?, koodauskokemus_sanallinen=?, koodauskokemus_arvio=? WHERE id=?");
 
 }
 else{
 
-$stmt = $db->prepare("UPDATE kayttajat SET etunimi=?, sukunimi=?, sposti=?, tunnus=?, koodikielet=?, koodauskokemus_sanallinen=?, koodauskokemus_arvio=? WHERE id=?");
+$muokkaus = $db->prepare("UPDATE kayttajat SET etunimi=?, sukunimi=?, sposti=?, tunnus=?, koodikielet=?, koodauskokemus_sanallinen=?, koodauskokemus_arvio=? WHERE id=?");
     
 
 }
 
-if (false === $stmt) {
+if (false === $muokkaus) {
 
     die('<p>Tallennus (prepare) epäonnistui. <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
 } else {
     if($_POST[salasana]!=""){
-           $bp = $stmt->bind_param("sssssssii", $etunimi, $sukunimi, $sposti, $tunnus, $salasana, $kielet, $kokemus_sanallinen, $kokemus_arvio, $id);
+           $bp = $muokkaus->bind_param("sssssssii", $etunimi, $sukunimi, $sposti, $tunnus, $salasana, $kielet, $kokemus_sanallinen, $kokemus_arvio, $id);
  
     }
     else{
-           $bp = $stmt->bind_param("ssssssii", $etunimi, $sukunimi, $sposti, $tunnus, $kielet, $kokemus_sanallinen, $kokemus_arvio, $id);
+           $bp = $muokkaus->bind_param("ssssssii", $etunimi, $sukunimi, $sposti, $tunnus, $kielet, $kokemus_sanallinen, $kokemus_arvio, $id);
  
     }
     
@@ -62,7 +62,7 @@ if (false === $stmt) {
     if (false === $bp) {
         die('<p>Tallennus (bind_param()) epäonnistui. <br>Syy: ' . htmlspecialchars($stmt->error) . '</p>');
     } else {
-        $tallennus = $stmt->execute();
+        $tallennus = $muokkaus->execute();
 
    
      if (false === $tallennus) {
@@ -86,20 +86,19 @@ if (false === $stmt) {
             $viesti = str_replace("\n.", "\n..", $viesti);
 
 
-            $siivottu_sposti = mysqli_real_escape_string($db, $sposti);
-            $lahetys = mail($siivottu_sposti, $otsikko, $viesti, $headers);
+            $lahetys = mail($sposti, $otsikko, $viesti, $headers);
 
             if ($lahetys) {
                 echo'<p> Viesti lähetetty!</p>';
             } else {
-                echo'<p>Viestiä ei pystytty lähettämään!' . $siivottu_sposti;
+                echo'<p>Viestiä ei pystytty lähettämään!' . $sposti;
                 print_r(error_get_last());
             }
         }
     }
 }
 
-$stmt->close();
+$muokkaus->close();
            echo' <p><a href="kayttajat.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
 echo'</div>';
 

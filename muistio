@@ -1,4 +1,4 @@
-- TARKISTA UUDELLEEN AKTIVOINTI JA VIRHEET
+
 - kaikkia tietokantajuttuja pitää siistiä!
 
 MIHIN ERROR? ehkä jos execute() epäonnistuu
@@ -10,6 +10,9 @@ MIHIN ERROR? ehkä jos execute() epäonnistuu
 - siivottu sposti ei toimi!
 
 - lomakkeen kenttien pituus ulkoasu.css:ään
+
+
+- piilota tiedostokansiot (sivu syksy2020.tylykoodaa.fi ja pääsivusto)
 
 - omat tiedot jos on kirjautunut sisään
 

@@ -60,7 +60,7 @@ if (empty($_POST[tunnus]) || empty($_POST[salasana]) || empty($_POST[salasana2])
 
             $muokkaus = $db->prepare("UPDATE kayttajat SET salasana=? WHERE BINARY tunnus=?");
 
-            $muokkaus->bind_param("ss", $tunnus, $salasana);
+            $muokkaus->bind_param("ss", $salasana, $tunnus);
 
             $tunnus = $_POST[tunnus];
             $salasana = $krypattu_salasana;

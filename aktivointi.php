@@ -60,7 +60,7 @@ if ($haku->num_rows == 0) {
     $otsikko = "=?UTF-8?B?" . base64_encode($otsikko) . "?=";
 
 
-    $viesti = 'Tunnuksesi sivustolla syksy2020.tylykoodaa.fi on ' . $tunnus . '.<br><br>Voit aktivoida tunnuksen uudelleen tästä linkistä <a href="salasanan_vaihto.php"> tästä linkistä</a>.<br><br><em>Tähän viestiin ei voi vastata.</em>';
+    $viesti = 'Tunnuksesi sivustolla https://syksy2020.tylykoodaa.fi/ope_valmiit on ' . $tunnus . '.<br><br>Voit aktivoida tunnuksen uudelleen tästä linkistä <a href="https://syksy2020.tylykoodaa.fi/ope_valmiit/salasanan_vaihto.php"> tästä linkistä</a>.<br><br><em>Tähän viestiin ei voi vastata.</em>';
     $viesti = str_replace("\n.", "\n..", $viesti);
 
 
