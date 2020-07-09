@@ -38,7 +38,9 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
 
     $tunnus = $_POST[tunnus];
 
-    $haku->execute();
+    if (!$haku->execute()) {
+        die('<p>Tietokantahaussa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($haku->error) . '</p>');
+    }
 
     $haku->store_result();
 
@@ -80,18 +82,17 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
                 echo' <p><a href="rekisteroityminen.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
             } else {
 
-                $tallennus = $db->prepare("INSERT INTO kayttajat (etunimi, sukunimi, sposti, tunnus, salasana, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                $lisays = $db->prepare("INSERT INTO kayttajat (etunimi, sukunimi, sposti, tunnus, salasana, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-                $tallennus->bind_param("sssssssi", $etunimi, $sukunimi, $sposti, $tunnus, $salasana, $kielet, $kokemus_sanallinen, $kokemus_arvio);
-
-
-                $tallennus_onnistui = $tallennus->execute();
+                $lisays->bind_param("sssssssi", $etunimi, $sukunimi, $sposti, $tunnus, $salasana, $kielet, $kokemus_sanallinen, $kokemus_arvio);
 
 
-     if (false === $tallennus_onnistui) {
-            die('<p>Tallennus (execute()) epäonnistui. <br>Syy: ' . htmlspecialchars($stmt->error) . '</p>');
-        } else {
-                         echo'<p>Tiedot tallennettu onnistuneesti!</p>';
+
+                if (!$lisays->execute()) {
+                    die('<p>Tietokantahaussa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($lisays->error) . '</p>');
+                }
+
+                echo'<p>Tiedot tallennettu onnistuneesti!</p>';
 
                 $headers .= "Organization: AT1.1 Internet ja verkkosivut\r\n";
                 $headers .= "MIME-Version: 1.0" . "\r\n";
@@ -113,32 +114,30 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
                 if ($lahetys) {
                     echo'<p> Viesti lähetetty!</p>';
                 } else {
-                    echo'<p>Viestiä ei pystytty lähettämään!' . $sposti;
-                    print_r(error_get_last());
+                    echo'<p>Viestiä ei pystytty lähettämään osoitteeseen' . $sposti;
+        print_r(error_get_last());
                 }
 
 
 
 
                 echo' <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
-            }
-           
 
-                $tallennus->close();
-        }
-   
+
+                $lisays->close();
+            }
         }
     }
+
 }
 
 
 
 
+    echo'</div>';
 
+    include('footer.php');
 
-echo'</div>';
-
-include('footer.php');
-
-echo '</body>
+    echo '</body>
 </html>';
+    

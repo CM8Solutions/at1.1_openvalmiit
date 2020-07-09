@@ -6,8 +6,8 @@
  * and open the template in the editor.
  */
 
-   
-   session_start();
+
+session_start();
 echo'<!DOCTYPE html>
 
 <html>
@@ -17,7 +17,7 @@ echo'<!DOCTYPE html>
 include("header.php");
 
 
-   echo' <body>
+echo' <body>
   
          <header style="border: 1px solid  #333333;">
         <h1>Harjoitellaan koodausta 	&#129321 </h1>
@@ -58,23 +58,19 @@ include("header.php");
  <h2>Tallennetut käyttäjät: </h2>
                   <a href="kayttajat.php" class="kayttajat" >Käyttäjät</a>';
 
-   if(!isset($_SESSION[tunnus])){
-         echo'<br><br>';
-        echo'<h2>Kirjautuminen: </h2>
+if (!isset($_SESSION[tunnus])) {
+    echo'<br><br>';
+    echo'<h2>Kirjautuminen: </h2>
                   <a href="kirjautuminen.php" class="kirjautuminen" >Kirjaudu sisään</a>';
-
-   }
-   else{
-       echo'<br><br>';
-        echo'<h2>Kirjaudu ulos: </h2>
+} else {
+    echo'<br><br>';
+    echo'<h2>Kirjaudu ulos: </h2>
                   <a href="kirjaudu_ulos.php" class="kirjautuminen" >Kirjaudu ulos</a>';
-
-
-   }
+}
 
 echo'<div class="vali"></div>';
 
-        echo'</div>';
+echo'</div>';
 
 include("footer.php");
 

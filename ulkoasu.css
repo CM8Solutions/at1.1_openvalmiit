@@ -18,13 +18,13 @@ body {
 
 table{
     border: 1px solid black;
-    
+
 }
 
 table th{
     color: blue;
     border: 1px solid grey;
-       padding: 4px 6px;
+    padding: 4px 6px;
 }
 
 table td{
@@ -38,18 +38,18 @@ img{
 
 h1{
     color: #ff0099;
-    
+
 }
 
 h2{
     color: #ff0099;
-    
+
 }
 
 h3{
-   font-size: 1em;
+    font-size: 1em;
     color: #ff0099;
-    
+
 }
 a{
     text-decoration: none;
@@ -70,45 +70,45 @@ header{
 
 .vali{
 
-margin-top:30px !important;
+    margin-top:30px !important;
 }
 
 .kuva{
-    
+
     margin-top: 10px;
     margin-bottom: 10px;
-    
-    
+
+
 }
 
 footer{
     color: green;
     font-size: 0.9em;
-      margin-top: 20px;
+    margin-top: 20px;
     border: 1px solid  #333333;
- padding: 10px;
- text-align: center;
- font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .tallennusnappi{
-    
+
     background-color: #ff0099;
     border-radius: 25px;
     padding: 4px 6px;
     font-weight: bold;
-    
+
 }
 .tallennusnappi:hover{
     cursor:pointer;
     background-color: white;
     color: #ff0099;
-    
+
 }
 .lomake{
 
     width: 40%;
-    
+
 }
 .lomake fieldset{
     padding: 5px 5px 20px 20px;
@@ -118,7 +118,7 @@ footer{
     border-top: 2px solid #514E61;
     border-left: 2px solid #514E61;
     border-right: 2px solid #514E61;
-      border-bottom: 2px solid #514E61;
+    border-bottom: 2px solid #514E61;
     border-radius: 5px 5px 0px 0px;
     -webkit-border-radius: 5px 5px 0px 0px;
     -moz-border-radius: 5px 5px 0px 0px;
@@ -127,19 +127,57 @@ footer{
     box-shadow: -0px -1px 2px #514E61;
     -moz-box-shadow:-0px -1px 2px #514E61;
     -webkit-box-shadow:-0px -1px 2px #514E61;
-   
+
     font-size: 1.1em;
     font-weight: bold;
 }
 
+.lomake input[type=text],
+.lomake input[type=password],
+.lomake input[type=email]
+{
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #b9b8bf;
+    outline: none;
+    color: #000;
+  padding: 5px;
+    box-shadow: inset 1px 1px 4px #b9b8bf;
+    -moz-box-shadow: inset 1px 1px 4px #b9b8bf;
+    -webkit-box-shadow: inset 1px 1px 4px #b9b8bf;
+    background: #fff;
+   width: 80%;
+    height:90%;
+    font-size: 0.9em;
+}
+
+.lomake textarea
+{
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #b9b8bf;
+    outline: none;
+    color: #000;
+  padding: 5px;
+    box-shadow: inset 1px 1px 4px #b9b8bf;
+    -moz-box-shadow: inset 1px 1px 4px #b9b8bf;
+    -webkit-box-shadow: inset 1px 1px 4px #b9b8bf;
+    background: #fff;
+   width: 80%;
+   height: 60px;
+    font-size: 1em;
+}
+
 
 .kayttajat{
-      background-color: #555555;
-      border: 2px solid black;
- 
-  color: white;
-  padding: 10px;
-  text-align: center;
+    background-color: #555555;
+    border: 2px solid black;
+
+    color: white;
+    padding: 10px;
+    text-align: center;
 }
 
 .kayttajat:hover{
@@ -150,12 +188,12 @@ footer{
 
 
 .kirjautuminen{
-      background-color: green;
-      border: 2px solid black;
- 
-  color: white;
-  padding: 10px;
-  text-align: center;
+    background-color: green;
+    border: 2px solid black;
+
+    color: white;
+    padding: 10px;
+    text-align: center;
 }
 
 .kirjautuminen:hover{
@@ -167,30 +205,30 @@ footer{
 
 
 .nappula{
-    
+
     font-size: 0.8em;
     background-color: blue;
     -moz-border-radius:10px;
     -webkit-border-radius:10px;
     border-radius:10px;
-     border: 1px solid blue;
+    border: 1px solid blue;
 
     font-weight: bold;
 
     color: white;
 
     display: inline-block;
-    
+
     padding:4px 4px;
-    
+
     margin-bottom: 10px;
     text-decoration:none;
-    
-    
+
+
 }
 
 .nappula:hover{
-   
+
     background-color: white;
     cursor:pointer;
     color: blue; 

@@ -30,7 +30,12 @@ $haku->bind_param("s", $sposti);
 
 $sposti = $_POST[sposti];
 
-$haku->execute();
+
+if (!$haku->execute()) {
+    die('<p>Tietokantahaussa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($haku->error) . '</p>');
+}
+
+
 
 $haku->store_result();
 $haku->bind_result($tulos1);
@@ -63,17 +68,16 @@ if ($haku->num_rows == 0) {
     $viesti = 'Tunnuksesi sivustolla https://syksy2020.tylykoodaa.fi/ope_valmiit on ' . $tunnus . '.<br><br>Voit aktivoida tunnuksen uudelleen tästä linkistä <a href="https://syksy2020.tylykoodaa.fi/ope_valmiit/salasanan_vaihto.php"> tästä linkistä</a>.<br><br><em>Tähän viestiin ei voi vastata.</em>';
     $viesti = str_replace("\n.", "\n..", $viesti);
 
-
-    $lahetys = mail($_POST[sposti], $otsikko, $viesti, $headers);
+    $sposti = $_POST[sposti];
+    $lahetys = mail($sposti, $otsikko, $viesti, $headers);
 
     if ($lahetys) {
         echo'<p>Linkki tunnuksen uudelleen aktivointiin on lähetetty antamaasi sähköpostiosoitteeseen!</p>';
 
         echo' <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
     } else {
-        echo'<p>Viestiä ei pystytty lähettämään!' . $siivottu_sposti;
-
-
+      echo'<p>Viestiä ei pystytty lähettämään osoitteeseen' . $sposti;
+        print_r(error_get_last());
         echo' <p><a href="unohtunut_tunnus.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
     }
 }

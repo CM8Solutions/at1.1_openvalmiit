@@ -1,18 +1,4 @@
-
-- kaikkia tietokantajuttuja pitää siistiä!
-
-MIHIN ERROR? ehkä jos execute() epäonnistuu
-
-- tsekkaa käyttäjän tietojen muokkaus, erityisesti salasanan osalta! onko järkevää?
-
-- ei stmt! + BINARY?!
-
-- siivottu sposti ei toimi!
-
-- lomakkeen kenttien pituus ulkoasu.css:ään
-
-
-- piilota tiedostokansiot (sivu syksy2020.tylykoodaa.fi ja pääsivusto)
+- tarkista kaikki toiminnot! kato myös spostin lähetyksen virheet!
 
 - omat tiedot jos on kirjautunut sisään
 

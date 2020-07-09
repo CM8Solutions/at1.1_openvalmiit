@@ -27,7 +27,9 @@ $haku->bind_param("s", $tunnus);
 
 $tunnus = $_POST[tunnus];
 
-$haku->execute();
+if (!$haku->execute()) {
+    die('<p>Tietokantahaussa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($haku->error) . '</p>');
+}
 
 $haku->store_result();
 
@@ -38,29 +40,30 @@ if ($haku->num_rows == 0) {
     echo'<p>Käyttäjätunnusta ei löydy!</p>';
 
     echo' <p><a href="kirjautuminen.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
-   
 } else {
 
     while ($haku->fetch()) {
         $tunnus = $tulos1;
         $salasana = $tulos2;
     }
- $haku->close();
+    $haku->close();
     $haku2 = $db->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=? AND BINARY salasana=?");
 
 
     $haku2->bind_param("ss", $tunnus, $salasana);
 
     $tunnus = $_POST[tunnus];
-    
+
     $suola = "atsjm2020";
 
 
     $krypattu_salasana = md5($suola . $_POST[salasana]);
-    
+
     $salasana = $krypattu_salasana;
 
-    $haku2->execute();
+    if (!$haku2->execute()) {
+        die('<p>Tietokantahaussa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($haku2->error) . '</p>');
+    }
     $haku2->store_result();
 
     if ($haku2->num_rows == 0) {

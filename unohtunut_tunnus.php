@@ -6,10 +6,10 @@ echo'<!DOCTYPE html>
     <head>
         <title>Unohtunut tunnus/salasana</title>';
 include("header.php");
-    
-  
-  
-  echo'  <body>
+
+
+
+echo'  <body>
   
          <header>
         <h1>Tunnuksen ja salasanan uudelleen aktivointi </h1>

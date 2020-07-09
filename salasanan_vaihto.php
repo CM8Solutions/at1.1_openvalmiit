@@ -6,10 +6,10 @@ echo'<!DOCTYPE html>
     <head>
         <title>Salasanan vaihto</title>';
 include("header.php");
-    
-  
-  
-  echo'  <body>
+
+
+
+echo'  <body>
   
          <header>
         <h1>Vaihda salasanasi: </h1>
