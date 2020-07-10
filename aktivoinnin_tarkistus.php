@@ -27,6 +27,9 @@ if (empty($_POST[tunnus]) || empty($_POST[salasana]) || empty($_POST[salasana2])
 } else {
 
     $haku = $db->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=?");
+    if (!$haku) {
+        die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+    }
     $haku->bind_param("s", $tunnus);
 
     $tunnus = $_POST[tunnus];
@@ -61,6 +64,9 @@ if (empty($_POST[tunnus]) || empty($_POST[salasana]) || empty($_POST[salasana2])
             $krypattu_salasana = md5($suola . $_POST[salasana]);
 
             $muokkaus = $db->prepare("UPDATE kayttajat SET salasana=? WHERE BINARY tunnus=?");
+            if (!$muokkaus) {
+                die('<p>Tietokantamuokkauksessa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+            }
 
             $muokkaus->bind_param("ss", $salasana, $tunnus);
 

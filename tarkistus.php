@@ -23,6 +23,11 @@ echo'    <body>
 
 
 $haku = $db->prepare("SELECT tunnus, salasana FROM kayttajat WHERE BINARY tunnus=?");
+if (!$haku) {
+    die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+}
+
+
 $haku->bind_param("s", $tunnus);
 
 $tunnus = $_POST[tunnus];
@@ -48,7 +53,9 @@ if ($haku->num_rows == 0) {
     }
     $haku->close();
     $haku2 = $db->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=? AND BINARY salasana=?");
-
+    if (!$haku2) {
+        die('<p>Tietokantahaussa 2 virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+    }
 
     $haku2->bind_param("ss", $tunnus, $salasana);
 

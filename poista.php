@@ -23,10 +23,17 @@ if ($_POST[valinta] == "en") {
     header("location: kayttajat.php");
 } else if ($_POST[valinta] == "kylla") {
 
-  
+
 
     $poisto = $db->prepare("DELETE FROM kayttajat WHERE id=?");
-    $haku->bind_param("i", $id);
+
+    if (!$poisto) {
+        die('<p>Tietokantapoistossa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+    }
+
+
+
+    $poisto->bind_param("i", $id);
 
     $id = $_POST[id];
 
@@ -60,7 +67,8 @@ if ($_POST[valinta] == "en") {
     if ($lahetys) {
         echo'<p> Viesti lähetetty!</p>';
     } else {
-          echo'<p>Viestiä ei pystytty lähettämään osoitteeseen' . $sposti;
+        echo'<p>Viestiä ei pystytty lähettämään osoitteeseen ' . $sposti;
+        echo'<br><br>';
         print_r(error_get_last());
     }
 

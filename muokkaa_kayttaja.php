@@ -18,9 +18,21 @@ echo'<div>';
 echo'<div class="vali"></div>';
 
 $haku = $db->prepare("SELECT id, etunimi, sukunimi, sposti, tunnus, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio FROM kayttajat WHERE id=?");
+
+if (!$haku) {
+    die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+}
+
 $haku->bind_param("i", $id);
 
-$id = $_POST[id];
+if (isset($_POST[id])) {
+
+    $id = $_POST[id];
+} else if (isset($_GET[id])) {
+
+    $id = $_GET[id];
+}
+
 
 if (!$haku->execute()) {
     die('<p>Tietokantahaussa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($haku->error) . '</p>');
@@ -46,30 +58,31 @@ while ($haku->fetch()) {
 }
 
 
-if (isset($_POST[muokkaa])) {
+if (isset($_POST[muokkaa]) || isset($_GET[muokkaa])) {
 
     echo'<form action="muokkaa_kayttajan_tiedot.php" method="post" class="lomake">';
     echo'<fieldset>';
     echo'<legend>Muokkaa käyttäjän tietoja</legend>';
     echo'<p><a href="kayttajat".php"> &#8617 &nbsp  Palaa takaisin </a></p>';
 
+    echo'<p style="font-size: 1em; font-weight: bold; color: red">Tähdellä * merkityt tiedot ovat pakollisia.</p>';
 
-    echo'<p> Etunimi: </p>
+    echo'<p> Etunimi: <b style="margin-left: 10px; color: red">*</b></p>
                 <input type="text" name="etunimi" value=' . $etunimi . '>
                 <br>
-                <p> Sukunimi: </p>
+            <p> Sukunimi:  <b style="margin-left: 10px; color: red">*</b></p>
                 <input type="text" name="sukunimi" value=' . $sukunimi . '>
                 <br>
-                <p> Sähköpostiosoite:</p>
+       <p> Sähköpostiosoite: <b style="margin-left: 10px; color: red">*</b></p>
                 <input type="email" name="sposti" value=' . $sposti . '>
-                <br>
-                <p>Käyttäjätunnus:</p>          
+                <br> 
+                <p>Käyttäjätunnus: <b style="margin-left: 10px; color: red">*</b></p>         
                  <input type="text" name="tunnus" value=' . $tunnus . '>
                 <br>
   
  
  <div class="vali"></div>
- <p> Käyttäjälle tutut koodikielet: </p>';
+ <p> Käyttäjälle tutut koodikielet:</p>';
 
 
     if (strpos($koodikielet, 'html') !== false) {
@@ -108,11 +121,11 @@ if (isset($_POST[muokkaa])) {
     echo'<br>
 
 
- <p>Käyttäjän koodauskokemukset</p>
+ <p>Käyttäjän koodauskokemukset <b style="margin-left: 10px; color: red">*</b></p>
  <textarea name="kokemus_sanallinen">' . $kokemus_sanallinen . '</textarea>
  
 <div class="vali"></div>
- <p>Asteikolla 1-5, kuinka kokenut koodari käyttäjä on <br>
+ <p>Asteikolla 1-5, kuinka kokenut koodari käyttäjä on <b style="margin-left: 10px; color: red">*</b><br>
 (1=aloittelija, 5=ammattilainen) 
 </p>
 

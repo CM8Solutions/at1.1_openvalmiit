@@ -36,9 +36,9 @@ echo' <body>
             <h2>Nettisivuja (järjestämätön lista)</h2>
 
 <ul>
-  <li> <a href="https://cuulis.cm8solutions.fi/">Cuulis</a> </li>
-  <li> <a href="https://wilma.edu.hel.fi/">Wilma</a> </li>
-  <li> <a href="https://o365.edu.hel.fi/">Sähköposti</a> </li>
+  <li> <a href="https://cuulis.cm8solutions.fi">Cuulis</a> </li>
+  <li> <a href="https://wilma.edu.hel.fi">Wilma</a> </li>
+  <li> <a href="https://www.office.com">Sähköposti</a> </li>
 </ul>  
             
             <br>

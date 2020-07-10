@@ -34,6 +34,11 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
     //katsotaan löytyykö tunnus, binary sen takia, että otetaan huomioon isot ja pienet kirjaimet
 
     $haku = $db->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=?");
+
+    if (!$haku) {
+        die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+    }
+
     $haku->bind_param("s", $tunnus);
 
     $tunnus = $_POST[tunnus];
@@ -84,6 +89,10 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
 
                 $lisays = $db->prepare("INSERT INTO kayttajat (etunimi, sukunimi, sposti, tunnus, salasana, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
+                if (!$lisays) {
+                    die('<p>Tietokantalisäyksessä virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+                }
+
                 $lisays->bind_param("sssssssi", $etunimi, $sukunimi, $sposti, $tunnus, $salasana, $kielet, $kokemus_sanallinen, $kokemus_arvio);
 
 
@@ -114,8 +123,9 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
                 if ($lahetys) {
                     echo'<p> Viesti lähetetty!</p>';
                 } else {
-                    echo'<p>Viestiä ei pystytty lähettämään osoitteeseen' . $sposti;
-        print_r(error_get_last());
+                    echo'<p>Viestiä ei pystytty lähettämään osoitteeseen ' . $sposti;
+                    echo'<br><br>';
+                    print_r(error_get_last());
                 }
 
 
@@ -128,16 +138,14 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
             }
         }
     }
-
 }
 
 
 
 
-    echo'</div>';
+echo'</div>';
 
-    include('footer.php');
+include('footer.php');
 
-    echo '</body>
+echo '</body>
 </html>';
-    
