@@ -64,8 +64,12 @@ if (!isset($_SESSION[tunnus])) {
                   <a href="kirjautuminen.php" class="kirjautuminen" >Kirjaudu sisään</a>';
 } else {
     echo'<br><br>';
-    echo'<h2>Kirjaudu ulos: </h2>
-                  <a href="kirjaudu_ulos.php" class="kirjautuminen" >Kirjaudu ulos</a>';
+
+
+    echo'<h2>Olet kirjautunut sisään. </h2>
+        
+   <a href="omat_tiedot.php" class="kirjauduttu" style="margin-right: 40px" >Omat tiedot</a>
+   <a href="kirjaudu_ulos.php" class="kirjauduttu" >Kirjaudu ulos</a>';
 }
 
 echo'<div class="vali"></div>';

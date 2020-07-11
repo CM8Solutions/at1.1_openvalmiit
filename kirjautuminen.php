@@ -33,7 +33,7 @@ echo'  <body>
 
 <br><br>
 
-<input type="submit" value="Kirjaudu" class="tallennusnappi">
+<input type="submit" value="Kirjaudu">
 <br><br>
 
 <a href="unohtunut_tunnus.php"><u>Unohditko tunnuksen tai salasanan?</u></a>;

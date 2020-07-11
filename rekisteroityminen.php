@@ -81,7 +81,7 @@ echo'</select>
 <div class="vali"></div>
 
 
-<input type="submit" value="Tallenna" class="tallennusnappi">
+<input type="submit" value="Tallenna">
 </fieldset>
 </form>
         </div>';

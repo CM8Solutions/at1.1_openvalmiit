@@ -1,12 +1,13 @@
 <?php
 
+session_start();
 include("yhteys.php");
 
 echo'<!DOCTYPE html>
 
 <html>
     <head>
-        <title>Muokkaa käyttäjän tietoja</title>';
+        <title>Muokkaa omia tietoja</title>';
 include("header.php");
 
 
@@ -25,13 +26,7 @@ if (!$haku) {
 
 $haku->bind_param("i", $id);
 
-if (isset($_POST[id])) {
-
-    $id = $_POST[id];
-} else if (isset($_GET[id])) {
-
-    $id = $_GET[id];
-}
+$id = $_SESSION[id];
 
 
 if (!$haku->execute()) {
@@ -60,10 +55,10 @@ while ($haku->fetch()) {
 
 if (isset($_POST[muokkaa]) || isset($_GET[muokkaa])) {
 
-    echo'<form action="muokkaa_kayttajan_tiedot.php" method="post" class="lomake">';
+    echo'<form action="muokkaa_omat_tiedot.php" method="post" class="lomake">';
     echo'<fieldset>';
-    echo'<legend>Muokkaa käyttäjän tietoja</legend>';
-    echo'<p><a href="kayttajat".php"> &#8617 &nbsp  Palaa takaisin </a></p>';
+    echo'<legend>Muokkaa omia tietojasi</legend>';
+    echo'<p><a href="omat_tiedot.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
 
     echo'<p style="font-size: 1em; font-weight: bold; color: red">Tähdellä * merkityt tiedot ovat pakollisia.</p>';
 
@@ -82,7 +77,7 @@ if (isset($_POST[muokkaa]) || isset($_GET[muokkaa])) {
   
  
  <div class="vali"></div>
- <p> Käyttäjälle tutut koodikielet:</p>';
+ <p>Sinulle tutut koodikielet:</p>';
 
 
     if (strpos($koodikielet, 'html') !== false) {
@@ -118,14 +113,14 @@ if (isset($_POST[muokkaa]) || isset($_GET[muokkaa])) {
 
     echo'<label for="javascript">JavaScript</label><br>';
 
-    echo'<br>
 
+    echo'<br>';
 
- <p>Käyttäjän koodauskokemukset <b style="margin-left: 10px; color: red">*</b></p>
+    echo'<p>Koodauskokemuksesi <b style="margin-left: 10px; color: red">*</b></p>
  <textarea name="kokemus_sanallinen">' . $kokemus_sanallinen . '</textarea>
  
 <div class="vali"></div>
- <p>Asteikolla 1-5, kuinka kokenut koodari käyttäjä on <b style="margin-left: 10px; color: red">*</b><br>
+ <p>Asteikolla 1-5, kuinka kokenut koodari olet <b style="margin-left: 10px; color: red">*</b><br>
 (1=aloittelija, 5=ammattilainen) 
 </p>
 
@@ -142,21 +137,28 @@ if (isset($_POST[muokkaa]) || isset($_GET[muokkaa])) {
 
 
     echo'</select>
-<input type="hidden" name="id" value=' . $id . '>  
+        
 <div class="vali"></div>
+ <p><b>Halutessasi voit vaihtaa salasanasi: </b></p>
+                <p>Anna salasana: <b style="margin-left: 10px; color: red">*</b> </p>               
+                 <input type="password" name="salasana">
+ 
+  <p>Anna salasana uudelleen:  <b style="margin-left: 10px; color: red">*</b></p>               
+                 <input type="password" name="salasana2">
 
+<div class="vali"></div>
 
 <input type="submit" value="Tallenna">';
 
 
 
     echo'</fieldset></form>';
-} else if (isset($_POST[poista])) {
+} else if (isset($_POST[poistu])) {
 
-    echo'<h3>Oletko varma, että haluat poistaa käyttäjän ' . $etunimi . ' ' . $sukunimi . '</h3>';
+    echo'<h3>Oletko varma, että haluat poistua järjestelmästä? </h3>';
 
-    echo'<form action = "poista.php" method = "post">';
-    echo'<input type = "hidden" name = "id" value = ' . $id . '>';
+    echo'<form action = "poista_omat.php" method = "post">';
+
     echo'<input type="hidden" name="sposti" value=' . $sposti . '>';
     echo'<button type = "submit" value = "kylla" style = "margin-right: 20px" name = "valinta" class="nappula">Kyllä</button>';
 
@@ -164,10 +166,9 @@ if (isset($_POST[muokkaa]) || isset($_GET[muokkaa])) {
 
     echo'</form>';
 } else {
-    echo'<h3>Palaa takaisin ensin, jos haluat päivittää sivun.</h3> ';
 
 
-    echo' <p><a href="kayttajat.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
+    header('location: omat_tiedot.php');
 }
 
 $haku->close();

@@ -31,7 +31,7 @@ echo'  <body>
 
 <br><br>
 
-<input type="submit" value="Lähetä" class="tallennusnappi">
+<input type="submit" value="Lähetä">
 
 
 

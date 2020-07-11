@@ -91,20 +91,7 @@ footer{
     font-weight: bold;
 }
 
-.tallennusnappi{
 
-    background-color: #ff0099;
-    border-radius: 25px;
-    padding: 4px 6px;
-    font-weight: bold;
-
-}
-.tallennusnappi:hover{
-    cursor:pointer;
-    background-color: white;
-    color: #ff0099;
-
-}
 .lomake{
 
     width: 40%;
@@ -170,6 +157,27 @@ footer{
     font-size: 1em;
 }
 
+.lomake input[type=submit]
+{
+    background-color: #ff0099;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    padding: 4px 6px;
+    font-weight: bold;
+}
+.lomake input[type=submit]:hover
+{
+
+    cursor:pointer;
+    background-color: white;
+    color: #ff0099;
+}
+.lomake input[type=submit]:active,
+.lomake input[type=submit]:focus
+{
+    outline: none;
+}
 
 .kayttajat{
     background-color: #555555;
@@ -200,6 +208,21 @@ footer{
     cursor: pointer;
     background-color: white;
     color:  green;
+}
+
+.kirjauduttu{
+    background-color: blue;
+    border: 2px solid black;
+
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.kirjauduttu:hover{
+    cursor: pointer;
+    background-color: white;
+    color:  blue;
 }
 
 

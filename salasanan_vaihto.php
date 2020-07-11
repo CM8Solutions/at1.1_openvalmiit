@@ -34,7 +34,7 @@ echo'  <body>
                  <input type="password" name="salasana2">
 <br><br>
 
-<input type="submit" value="Kirjaudu" class="tallennusnappi">
+<input type="submit" value="Kirjaudu">
 
 
 </fieldset>

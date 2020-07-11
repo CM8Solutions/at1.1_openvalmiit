@@ -22,7 +22,7 @@ echo'    <body>
 
 
 
-$haku = $db->prepare("SELECT tunnus, salasana FROM kayttajat WHERE BINARY tunnus=?");
+$haku = $db->prepare("SELECT tunnus, salasana, id FROM kayttajat WHERE BINARY tunnus=?");
 if (!$haku) {
     die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
 }
@@ -38,7 +38,7 @@ if (!$haku->execute()) {
 
 $haku->store_result();
 
-$haku->bind_result($tulos1, $tulos2);
+$haku->bind_result($tulos1, $tulos2, $tulos3);
 
 
 if ($haku->num_rows == 0) {
@@ -50,6 +50,7 @@ if ($haku->num_rows == 0) {
     while ($haku->fetch()) {
         $tunnus = $tulos1;
         $salasana = $tulos2;
+        $id = $tulos3;
     }
     $haku->close();
     $haku2 = $db->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=? AND BINARY salasana=?");
@@ -83,6 +84,7 @@ if ($haku->num_rows == 0) {
         echo'Kirjautuminen onnistui!';
 
         $_SESSION[tunnus] = $tunnus;
+        $_SESSION[id] = $id;
         echo' <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
     }
 

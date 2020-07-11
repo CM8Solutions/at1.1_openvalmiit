@@ -44,11 +44,8 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
         }
 
 
-        if ($_POST[salasana] != "") {
-            $muokkaus->bind_param("sssssssii", $etunimi, $sukunimi, $sposti, $tunnus, $salasana, $kielet, $kokemus_sanallinen, $kokemus_arvio, $id);
-        } else {
-            $muokkaus->bind_param("ssssssii", $etunimi, $sukunimi, $sposti, $tunnus, $kielet, $kokemus_sanallinen, $kokemus_arvio, $id);
-        }
+        $muokkaus->bind_param("ssssssii", $etunimi, $sukunimi, $sposti, $tunnus, $kielet, $kokemus_sanallinen, $kokemus_arvio, $id);
+
 
 
         if (!$muokkaus->execute()) {
