@@ -1,26 +1,39 @@
 
 ***************************************************************************
+- Responsiivisuus:
+font-size:10vw;
+ 1vw = 1% of viewport width.
 
-- AT kurssin vaatimukset ja arviointi, KATSO OPS!
+
+@media screen and (max-width:800px) {
+  .left, .main, .right {
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+
+
 
 - Yhtenäistä kieli
 
 - Kommentointi: yksi rivi + monta riviä (eri .css-tiedostossa)
 
-- Responsiivisuus
 
-- LUO KANSIOITA PALVELIMELLE  (opiskelijan kansion nimi=opiskelijan nimi)
+
+
 
 *******************************************************************************
-
-________________________________________________________
 
 
 -  tiekoodariksi.fi
 
 -  Eficode-yhteistyö?
 
-----------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+ENNEN KUN KURSSI ALKAA:
+
+
+- LUO KANSIOITA PALVELIMELLE  (opiskelijan kansion nimi=opiskelijan nimi)
 
 TUNNARI:
 
