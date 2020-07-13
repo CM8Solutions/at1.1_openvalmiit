@@ -153,7 +153,7 @@ if (isset($_POST[muokkaa]) || isset($_GET[muokkaa])) {
     echo'</fieldset></form>';
 } else if (isset($_POST[poista])) {
 
-    echo'<h3>Oletko varma, että haluat poistaa käyttäjän ' . $etunimi . ' ' . $sukunimi . '</h3>';
+    echo'<h3>Oletko varma, että haluat poistaa käyttäjän ' . $etunimi . ' ' . $sukunimi . '?</h3>';
 
     echo'<form action = "poista.php" method = "post">';
     echo'<input type = "hidden" name = "id" value = ' . $id . '>';

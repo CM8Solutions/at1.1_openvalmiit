@@ -29,11 +29,11 @@ echo' <body>
             <p style="font-size: 1em; color: blue">Hello World!</p>
             
 <div  style="text-align: center">
-            <img class="kuva" src="https://i.imgur.com/2w4sYoJ.png" style="width: 500px; height: 300px;">
+            <img class="kuva" src="https://i.imgur.com/2w4sYoJ.png" >
             
 </div>
 <br>
-            <h2>Nettisivuja (järjestämätön lista)</h2>
+            <h3>Nettisivuja (järjestämätön lista)</h3>
 
 <ul>
   <li> <a href="https://cuulis.cm8solutions.fi">Cuulis</a> </li>
@@ -43,7 +43,7 @@ echo' <body>
             
             <br>
             
-        <h2>Lisää nettisivuja (järjestetty lista)</h2>
+        <h3>Lisää nettisivuja (järjestetty lista)</h3>
 
 <ol>
   <li><a href="https://www.hel.fi/tyly/fi/uutiset/etu-toolon-lukion-oppimateriaalit-lukuvuodelle-2020-2021">Etu-Töölön lukion oppimateriaalit lukuvuodelle 2020-2021</a> </li>
@@ -52,21 +52,21 @@ echo' <body>
 </ol>  
 
 <br>
-          <h2>Linkit toisille sivuille: </h2>
+          <h3>Linkit toisille sivuille: </h3>
                   <a href="rekisteroityminen.php"><u>Tämä linkki vie sivulle rekisteroityminen.php</u></a>
       <br> <br>           
- <h2>Tallennetut käyttäjät: </h2>
+ <h3>Tallennetut käyttäjät: </h3>
                   <a href="kayttajat.php" class="kayttajat" >Käyttäjät</a>';
 
 if (!isset($_SESSION[tunnus])) {
     echo'<br><br>';
-    echo'<h2>Kirjautuminen: </h2>
+    echo'<h3>Kirjautuminen: </h3>
                   <a href="kirjautuminen.php" class="kirjautuminen" >Kirjaudu sisään</a>';
 } else {
     echo'<br><br>';
 
 
-    echo'<h2>Olet kirjautunut sisään. </h2>
+    echo'<h3>Olet kirjautunut sisään. </h3>
         
    <a href="omat_tiedot.php" class="kirjauduttu" style="margin-right: 40px" >Omat tiedot</a>
    <a href="kirjaudu_ulos.php" class="kirjauduttu" >Kirjaudu ulos</a>';

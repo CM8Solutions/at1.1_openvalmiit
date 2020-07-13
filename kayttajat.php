@@ -14,7 +14,7 @@ include("header.php");
 
 echo '<body>
            <header>
-        <h1>Tietokantaan tallennetut käyttäjät </h1>
+        <h2>Tietokantaan tallennetut käyttäjät </h2>
 
     </header>';
 
@@ -45,8 +45,8 @@ if ($haku->num_rows == 0) {
 
 
 
-    echo'<table>';
-    echo'<thead><th>Etunimi</th><th>Sukunimi</th><th>Sähköpostiosoite</th><th>Tunnus</th><th>Koodikielet</th><th>Koodauskokemus (sanallinen)</th><th>Koodauskokemus (arvio)</th></thead>';
+    echo'<table class="kayttajat_table">';
+    echo'<thead><th>Etunimi</th><th>Sukunimi</th><th>Sähköpostiosoite</th><th>Tunnus</th><th>Koodikielet</th><th>Koodauskokemus (sanallinen)</th><th>Koodauskokemus (arvio)</th><th></th></thead>';
 
     echo'<tbody>';
     while ($haku->fetch()) {
@@ -68,7 +68,7 @@ if ($haku->num_rows == 0) {
 
         echo'<tr><td>' . $etunimi . '</td><td>' . $sukunimi . '</td><td>' . $sposti . '</td><td>' . $tunnus . '</td><td>' . $koodikielet . '</td><td>' . $kokemus_sanallinen . '</td><td>' . $kokemus_arvio . '</td>';
         echo'<td><form action="muokkaa_kayttaja.php" method="post"><input type="hidden" name="id" value=' . $id . '>'
-        . '<input type="submit" class="nappula" style="margin-right: 10px" name="muokkaa" title="Muokkaa käyttäjän tietoja" value="Muokkaa">'
+        . '<input type="submit" class="nappula" style="margin-right: 10px; " name="muokkaa" title="Muokkaa käyttäjän tietoja" value="Muokkaa">'
         . '<input type="submit" class="nappula" name="poista" title="Poista käyttäjä" value="Poista"></form></td></tr>';
     }
     echo'</tbody></table>';
