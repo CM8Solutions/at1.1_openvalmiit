@@ -1,74 +1,67 @@
-formien leveys näytön mukaan:
-
-
-läppäri 753px
-näyttö 945px
-
-
-
-***************************************************************************
-- Responsiivisuus:
-font-size:10vw;
- 1vw = 1% of viewport width.
-
-
-@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
-@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ }
-@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }
-@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
-@media (min-width:1281px) { /* hi-res laptops and desktops */ }
-
-
-
 - Yhtenäistä kieli
-
-- Kommentointi: yksi rivi + monta riviä (eri .css-tiedostossa)
-
-
-
-
-
-*******************************************************************************
-
 
 -  tiekoodariksi.fi
 
 -  Eficode-yhteistyö?
 
-----------------------------------------------------------------------------------------
+*******************************************************************************
 
-ENNEN KUN KURSSI ALKAA:
+KOMMENTOINTI: 
+
+HTML:       <!-- KOMMENTTI -->
+
+CSS:        /* KOMMENTTI */
+
+PHP:       // YHDEN RIVIN KOMMENTTI
+
+            /*
+            MONEN
+            RIVIN
+            KOMMENTTI
+            */
+
+***************************************************************************
+- RESPONSIIVISUUS:
+
+TEKSTI:  (font-size:10vw;   1vw = 1% of viewport width)
 
 
-- LUO KANSIOITA PALVELIMELLE  (opiskelijan kansion nimi=opiskelijan nimi)
+ /* hi-res laptops and desktops */
 
-TUNNARI:
+@media (min-width: 1281px) {
 
-u60224
+}
 
-SALASANA (ftp+tietokanta)
+ /* big landscape tablets, laptops, and desktops */
 
-atsjm2020
+@media (min-width: 1025px) and (max-width: 1280px) {
 
+}
 
-FTP-PALVELIN:
+/* tablet, landscape iPad, lo-res laptops ands desktops */ 
 
-ftp2.shellit.org
+@media (min-width: 961px) and (max-width: 1024px) {
 
+}
 
-TIETOKANTA-PALVELIN:
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
 
-mysql2.shellit.org 
+@media (min-width: 641px) and (max-width: 960px) {
 
-osoite:  phpmyadmin.shellit.org
-server choice:  sql2.shellit.org
+}
 
-OPETTAJAN ESIMERKKITIEDOSTOJEN GIT-osoite:
+ /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
 
-https://github.com/CM8Solutions/at1.1_tylykoodaa
+@media (min-width: 481px) and (max-width: 640px) {
 
-----------------------------------------
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (min-width: 320px) and (max-width: 480px) {
+
+}
+
+*****************************************************************************************************
 
 JOS HEADER LOCATION EI TOIMI:
 
@@ -76,61 +69,4 @@ JOS HEADER LOCATION EI TOIMI:
  + 
 ob_start() alkuun
 
---------------------------------------------------
-
-NÄYTÄ HTML W2schoolsissa
-(UTF-8 enkooduas ei toimi Netbensissa muissa ku php-tiedostoissa, syy tallennusmuoto UTF-8 (without bom)
-
-____________________________________________________
-
-KUN ALOITETAAN KOODAAMAAN:
-
-1) LUODAAN UUSI NetBeans-projekti (tyhjä)
-- Run As (Remote Connection)
-- Project URL (opettaja):  https://syksy2020.tylykoodaa.fi/
-
-2) TEHDÄÄN REMOTE CONNECTION:
-ftp2.shellit.org
-u60244
-atsjm2020
-initial directory: /
-
-3) 
-UPLOAD DIRECTORY (opettaja): (/syksy2020/ope)
-RUN AS: On Save
-
-4) VAIHEET:
-
-I.	TEHDÄÄN YHDESSÄ html-perusrunko ja siinä perusjuttuja
-o	index.html -> etusivu.html
-o	<title><footer>
-o	<p> Hello World </p>
-o	<a>, <img>, <ul>, <ol>, <li>, <header>, <h1>, <div>
-(kuvista linkki: https://imgur.com/upload)
-o	<form> ja <a> eri tiedostoihin sivu2.html -> HUOMATAAN, ETTEI VOIDA TALLENTAA HTML:llä
-o	CSS-koodia tägien sisään ja erillinen tiedosto
-o	etusivulle sivu3.html (for, while, array, taulukko, emoji)
-o	tehdään sivu2.html ja sivu3.html navinappulat
-o	mallit Cuuliksessa
-
-II.	Luodaan php-tiedosto ja siihen edelliset php:n sisään
-
-
-III. JOKAISEN OMA SETTI
-o	 luodaan index.php, joka johtaa etusivu.php:lle
-New Project -> Run as: Remote Web Site -> Tunnarit + alikansio
-o	harjoitellaan etusivulla open esittämiä juttuja <title>, <footer>, <p>, <img>, <form>, <div>
-o	luodaan ulkoasu.css-tiedosto, jolla tyylitellään edelliset
-o	favicon
-o	luodaan yhteys.php-tiedosto
-o	luodaan tietokanta
-o	kirjautuminen ja session
-
-Jos jää aikaa:
-o	for ja while
-o	array() ja taulukko
-o	emoji
-o	tiedoston lisäys
-o	JavaScript + alert jne. helpot
-o	<Responsiivisuus:   @media screen and (max-width: 500px)
-
+*******************************************************************************************************
