@@ -11,7 +11,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>Tietojen tallennus</title>';
 include("header.php");
-include("yhteys.php");
+include("tietokantayhteys.php");
 
 
 echo'    <body>
@@ -33,10 +33,10 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
 
     //katsotaan löytyykö tunnus, binary sen takia, että otetaan huomioon isot ja pienet kirjaimet
 
-    $haku = $db->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=?");
+    $haku = $yhteys->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=?");
 
     if (!$haku) {
-        die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+        die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
     }
 
     $haku->bind_param("s", $tunnus);
@@ -87,10 +87,10 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
                 echo' <p><a href="rekisteroityminen.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
             } else {
 
-                $lisays = $db->prepare("INSERT INTO kayttajat (etunimi, sukunimi, sposti, tunnus, salasana, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                $lisays = $yhteys->prepare("INSERT INTO kayttajat (etunimi, sukunimi, sposti, tunnus, salasana, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
                 if (!$lisays) {
-                    die('<p>Tietokantalisäyksessä virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+                    die('<p>Tietokantalisäyksessä virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
                 }
 
                 $lisays->bind_param("sssssssi", $etunimi, $sukunimi, $sposti, $tunnus, $salasana, $kielet, $kokemus_sanallinen, $kokemus_arvio);

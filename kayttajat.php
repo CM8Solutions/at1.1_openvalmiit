@@ -1,6 +1,6 @@
 <?php
 
-include("yhteys.php");
+include("tietokantayhteys.php");
 
 echo'<!DOCTYPE html>
 
@@ -22,11 +22,11 @@ echo'<div>';
 echo'<p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
 echo'<div class="vali"></div>';
 
-$haku = $db->prepare("SELECT id, etunimi, sukunimi, sposti, tunnus, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio FROM kayttajat");
+$haku = $yhteys->prepare("SELECT id, etunimi, sukunimi, sposti, tunnus, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio FROM kayttajat");
 
 
 if (!$haku) {
-    die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+    die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
 }
 
 if (!$haku->execute()) {

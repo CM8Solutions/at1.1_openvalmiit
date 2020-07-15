@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include("yhteys.php");
+include("tietokantayhteys.php");
 
 echo'<!DOCTYPE html>
 
@@ -18,10 +18,10 @@ echo '<body>';
 echo'<div>';
 echo'<div class="vali"></div>';
 
-$haku = $db->prepare("SELECT id, etunimi, sukunimi, sposti, tunnus, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio FROM kayttajat WHERE id=?");
+$haku = $yhteys->prepare("SELECT id, etunimi, sukunimi, sposti, tunnus, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio FROM kayttajat WHERE id=?");
 
 if (!$haku) {
-    die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+    die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
 }
 
 $haku->bind_param("i", $id);

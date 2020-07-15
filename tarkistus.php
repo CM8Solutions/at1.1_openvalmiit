@@ -12,7 +12,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>Kirjautumisen tarkistus</title>';
 include("header.php");
-include("yhteys.php");
+include("tietokantayhteys.php");
 
 
 echo'    <body>
@@ -22,9 +22,9 @@ echo'    <body>
 
 
 
-$haku = $db->prepare("SELECT tunnus, salasana, id FROM kayttajat WHERE BINARY tunnus=?");
+$haku = $yhteys->prepare("SELECT tunnus, salasana, id FROM kayttajat WHERE BINARY tunnus=?");
 if (!$haku) {
-    die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+    die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
 }
 
 
@@ -53,9 +53,9 @@ if ($haku->num_rows == 0) {
         $id = $tulos3;
     }
     $haku->close();
-    $haku2 = $db->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=? AND BINARY salasana=?");
+    $haku2 = $yhteys->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=? AND BINARY salasana=?");
     if (!$haku2) {
-        die('<p>Tietokantahaussa 2 virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+        die('<p>Tietokantahaussa 2 virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
     }
 
     $haku2->bind_param("ss", $tunnus, $salasana);

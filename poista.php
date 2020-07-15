@@ -12,7 +12,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>Käyttäjän poisto</title>';
 include("header.php");
-include("yhteys.php");
+include("tietokantayhteys.php");
 
 
 
@@ -25,10 +25,10 @@ if ($_POST[valinta] == "en") {
 
 
 
-    $poisto = $db->prepare("DELETE FROM kayttajat WHERE id=?");
+    $poisto = $yhteys->prepare("DELETE FROM kayttajat WHERE id=?");
 
     if (!$poisto) {
-        die('<p>Tietokantapoistossa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+        die('<p>Tietokantapoistossa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
     }
 
 

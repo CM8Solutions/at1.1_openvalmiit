@@ -74,6 +74,17 @@ if (!isset($_SESSION[tunnus])) {
 
 echo'<div class="vali"></div>';
 
+echo'<br>
+          <h3>Extra-harjoittelua: </h3>
+          <ul>
+              <li>    <a href="loopit.php">While ja do while</a></li>
+                   <li><a href="taulukot.php">Taulukot</a></li>
+                      <li><a href="tiedoston_lisays.php">Tiedoston lisäys</a></li>
+                         <li><a href="javascript_harjoittelua.php">JavaScript-harjoittelua</a></li>
+      </ul>';
+        
+echo'<div class="vali"></div>';        
+        
 echo'</div>';
 
 include("footer.php");

@@ -11,7 +11,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>Muokkaa käyttäjän tietoja</title>';
 include("header.php");
-include("yhteys.php");
+include("tietokantayhteys.php");
 
 
 echo'<div>';
@@ -38,9 +38,9 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
         ;
     } else {
 
-        $muokkaus = $db->prepare("UPDATE kayttajat SET etunimi=?, sukunimi=?, sposti=?, tunnus=?, koodikielet=?, koodauskokemus_sanallinen=?, koodauskokemus_arvio=? WHERE id=?");
+        $muokkaus = $yhteys->prepare("UPDATE kayttajat SET etunimi=?, sukunimi=?, sposti=?, tunnus=?, koodikielet=?, koodauskokemus_sanallinen=?, koodauskokemus_arvio=? WHERE id=?");
         if (!$muokkaus) {
-            die('<p>Tietokantamuokkauksessa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+            die('<p>Tietokantamuokkauksessa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
         }
 
 

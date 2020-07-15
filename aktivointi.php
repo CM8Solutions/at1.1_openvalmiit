@@ -11,7 +11,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>Tunnuksen uudelleen aktivointi</title>';
 include("header.php");
-include("yhteys.php");
+include("tietokantayhteys.php");
 
 
 echo'    <body>
@@ -25,10 +25,10 @@ echo'<div>';
 
 //katsotaan löytyykö tunnus, binary sen takia, että otetaan huomioon isot ja pienet kirjaimet
 
-$haku = $db->prepare("SELECT tunnus FROM kayttajat WHERE BINARY sposti=?");
+$haku = $yhteys->prepare("SELECT tunnus FROM kayttajat WHERE BINARY sposti=?");
 
 if (!$haku) {
-    die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+    die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
 }
 
 $haku->bind_param("s", $sposti);

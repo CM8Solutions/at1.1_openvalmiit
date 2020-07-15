@@ -12,7 +12,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>Tunnuksen uudelleen aktivoinnin tarkistus</title>';
 include("header.php");
-include("yhteys.php");
+include("tietokantayhteys.php");
 
 
 echo'    <body>
@@ -26,9 +26,9 @@ if (empty($_POST[tunnus]) || empty($_POST[salasana]) || empty($_POST[salasana2])
     echo' <p><a href="salasanan_vaihto.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
 } else {
 
-    $haku = $db->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=?");
+    $haku = $yhteys->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=?");
     if (!$haku) {
-        die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+        die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
     }
     $haku->bind_param("s", $tunnus);
 
@@ -63,9 +63,9 @@ if (empty($_POST[tunnus]) || empty($_POST[salasana]) || empty($_POST[salasana2])
             $suola = "atsjm2020";
             $krypattu_salasana = md5($suola . $_POST[salasana]);
 
-            $muokkaus = $db->prepare("UPDATE kayttajat SET salasana=? WHERE BINARY tunnus=?");
+            $muokkaus = $yhteys->prepare("UPDATE kayttajat SET salasana=? WHERE BINARY tunnus=?");
             if (!$muokkaus) {
-                die('<p>Tietokantamuokkauksessa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($db->error) . '</p>');
+                die('<p>Tietokantamuokkauksessa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
             }
 
             $muokkaus->bind_param("ss", $salasana, $tunnus);

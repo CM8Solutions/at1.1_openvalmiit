@@ -1,3 +1,7 @@
+(-  tiekoodariksi.fi
+-  Eficode-yhteistyö?)
+
+
 ENNEN KUN KURSSI ALKAA:
 
 - LUO KANSIOITA PALVELIMELLE  (opiskelijan kansion nimi=opiskelijan nimi)
@@ -72,15 +76,15 @@ New Project -> Run as: Remote Web Site -> Tunnarit + alikansio
 o	harjoitellaan etusivulla open esittämiä juttuja <title>, <footer>, <p>, <img>, <form>, <div>
 o	luodaan ulkoasu.css-tiedosto, jolla tyylitellään edelliset
 o	favicon
-o	luodaan yhteys.php-tiedosto
+o	luodaan tietokantatietokantayhteys.php-tiedosto
 o	luodaan tietokanta
 o	kirjautuminen ja session
 
 Jos jää aikaa:
-o	for ja while
+o	while ja do while, random
 o	array() ja taulukko
 o	emoji
 o	tiedoston lisäys
 o	JavaScript + alert jne. helpot
-o	<Responsiivisuus:   @media screen and (max-width: 500px)
+o	<Responsiivisuus:   @media screen
 
