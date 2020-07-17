@@ -20,7 +20,7 @@ include("javascript_funktiota.js");
 echo' <body>
    <div style="border: 1px solid  #333333; margin-top: 20px; padding-bottom: 20px">
          
-        <h2>Harjoitellaan JavaScript-funktioita. </h1>
+        <h2>Harjoitellaan JavaScript-funktioita. </h2>
          <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>
 
 <br>';

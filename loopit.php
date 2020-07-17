@@ -20,7 +20,7 @@ include("header.php");
 echo' <body>
    <div style="border: 1px solid  #333333; margin-top: 20px; padding-bottom: 20px">
          
-        <h2>Harjoitellaan WHILE ja DO WHILE-looppeja. </h1>
+        <h2>Harjoitellaan WHILE ja DO WHILE-looppeja. </h2>
       <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p> ';
 echo'<div class="vali"></div>';
 echo'<h3> WHILE-looppi:</h3>';

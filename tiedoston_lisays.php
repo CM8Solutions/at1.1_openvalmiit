@@ -32,7 +32,7 @@ echo' <body>
 
 <p style="color: red"><b>Huom! </b><b style="font-weight: normal">Tiedoston maksimikoko on 20,0MB.<br>Sallitut tiedostomuodot: .pdf,  .tnsp, .tns, .docx, .ods, .odt, .odp, .odg, .csv, .zip, .rar, .doc, .dat, .ppt, .txt tai .rtf, .ppt, .pptx, .xls, .xlsx	</b></p>
 
-			<br><input type="file" name="my_file[]" style="font-size: 0.9em" multiple="" >
+			<br><input type="file" name="tiedostot[]" style="font-size: 0.9em" multiple="" >
  	
 		<br><br><br><input type="submit" value="&#10003 Tallenna" class="myButton9">
 	</fieldset></form>';

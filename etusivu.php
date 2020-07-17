@@ -80,7 +80,8 @@ echo'<br>
               <li>    <a href="loopit.php">While ja do while</a></li>
                    <li><a href="taulukot.php">Taulukot</a></li>
                       <li><a href="tiedoston_lisays.php">Tiedoston lisäys</a></li>
-                         <li><a href="javascript_harjoittelua.php">JavaScript-harjoittelua</a></li>
+                      <br><a href="tiedostot.php" class="kirjauduttu" >Lisätyt tiedostot</a>
+                       <br><br><li><a href="javascript_harjoittelua.php">JavaScript-harjoittelua</a></li>
       </ul>';
         
 echo'<div class="vali"></div>';        
