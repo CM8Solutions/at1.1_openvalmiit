@@ -25,8 +25,8 @@ echo' <body>
 
 <br>';
 
-        echo '<form action="laheta_tiedosto.php" class="lomake" method="POST" enctype="multipart/form-data"><fieldset>';
-        echo'<legend>Lisää tiedosto</legend>
+echo '<form action="laheta_tiedosto.php" class="lomake" method="POST" enctype="multipart/form-data"><fieldset>';
+echo'<legend>Lisää tiedosto</legend>
        
 	
 
@@ -39,9 +39,9 @@ echo' <body>
 
 
 
-        
-echo'<div class="vali"></div>';        
-        
+
+echo'<div class="vali"></div>';
+
 echo'</div>';
 
 include("footer.php");

@@ -67,9 +67,10 @@ if ($haku->num_rows == 0) {
 
 
         echo'<tr><td>' . $etunimi . '</td><td>' . $sukunimi . '</td><td>' . $sposti . '</td><td>' . $tunnus . '</td><td>' . $koodikielet . '</td><td>' . $kokemus_sanallinen . '</td><td>' . $kokemus_arvio . '</td>';
-        echo'<td><form action="muokkaa_kayttaja.php" method="post"><input type="hidden" name="id" value=' . $id . '>'
-        . '<input type="submit" class="nappula" style="margin-right: 10px; " name="muokkaa" title="Muokkaa käyttäjän tietoja" value="Muokkaa">'
-        . '<input type="submit" class="nappula" name="poista" title="Poista käyttäjä" value="Poista"></form></td></tr>';
+        echo'<td><form action="muokkaa_kayttaja.php" method="post"><input type="hidden" name="id" value=' . $id . '>
+        <input type="submit" class="nappula" name="muokkaa" title="Muokkaa käyttäjän tietoja" value="Muokkaa">
+        <input type="submit" class="nappula" name="poista" title="Poista käyttäjä" value="Poista">
+        <input type="submit" class="nappula" name="viesti" title="Lähetä viesti" value="&#64 Lähetä viesti"></form></td></tr>';
     }
     echo'</tbody></table>';
 }

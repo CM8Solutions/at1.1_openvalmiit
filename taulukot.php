@@ -30,11 +30,11 @@ echo'<h3>Luetellaan sisältö:</h3>';
 $varit = array("punainen", "vihreä", "sininen", "keltainen");
 
 foreach ($varit as $sisalto) {
-  echo $sisalto.'<br>';
+    echo $sisalto . '<br>';
 }
 
 
-echo'<p style="font-weight: bold">Kolmas väri on: '.$varit[2].'</p>';
+echo'<p style="font-weight: bold">Kolmas väri on: ' . $varit[2] . '</p>';
 
 echo'<div class="vali"></div>';
 
@@ -44,11 +44,10 @@ echo'<h3>Lisätään sisältöä push-toiminnolla:</h3>';
 $arvotut_numerot = array();
 
 
-for($maara=5; $maara > 0; $maara--){
-    
-    $numero = rand(0,99);
+for ($maara = 5; $maara > 0; $maara--) {
+
+    $numero = rand(0, 99);
     array_push($arvotut_numerot, $numero);
-    
 }
 
 echo'<p style="font-weight: bold; display: inline-block; margin-right: 20px">Arvotut 5 numeroa ovat:</p>';
@@ -56,17 +55,16 @@ echo'<p style="font-weight: bold; display: inline-block; margin-right: 20px">Arv
 $maara = count($arvotut_numerot);
 
 foreach ($arvotut_numerot as $numero) {
-  echo $numero;
-  $maara--;
-  if($maara>0){
-      echo', ';
-  }
-  
+    echo $numero;
+    $maara--;
+    if ($maara > 0) {
+        echo', ';
+    }
 }
 
-        
-echo'<div class="vali"></div>';        
-        
+
+echo'<div class="vali"></div>';
+
 echo'</div>';
 
 include("footer.php");

@@ -163,6 +163,21 @@ if (isset($_POST[muokkaa]) || isset($_GET[muokkaa])) {
     echo'<button type = "submit" value = "en" name = "valinta" class="nappula">En</button>';
 
     echo'</form>';
+} else if (isset($_POST[viesti])) {
+
+    echo'<h3>Lähetä viesti käyttäjälle ' . $etunimi . ' ' . $sukunimi . '</h3>';
+    echo'<p><a href="kayttajat".php"> &#8617 &nbsp  Palaa takaisin </a></p>';
+    echo'<form action="laheta_viesti.php" method="post" class="lomake_viesti">';
+    echo'<fieldset>';
+
+
+    echo'<p>Viesti:</p>';
+    echo'<textarea name="viesti"></textarea>
+    <input type="hidden" value=' . $id . '>';
+
+    echo'<input type = "submit" value = "Lähetä"  class="nappula">';
+
+    echo'</form>';
 } else {
     echo'<h3>Palaa takaisin ensin, jos haluat päivittää sivun.</h3> ';
 

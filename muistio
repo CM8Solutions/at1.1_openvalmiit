@@ -1,6 +1,7 @@
 
-* tarkista tyhjä tiedosto + tiedoston katselu (tiedosto on jo lisätty!) + tiedoston poisto + tiedostot-nappulan ulkoasu
-* headers. nimi suomeksi
+* testaa tiedostojen lähetys (samanniminen Asiakirja + joku toinen)
+* lähetä viesti käyttäjälle, ulkoasu + itse lähetys, vastaanottajan sähköpostiosoite lomakkeeseen!
+* headers. nimi suomeksi, TESTAA!!!
 *	JavaScript + alert jne. helpot
 *       post ja get ero
 *       a-linkki ja getit

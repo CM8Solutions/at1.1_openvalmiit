@@ -98,7 +98,7 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
 
 
                 if (!$lisays->execute()) {
-                    die('<p>Tietokantahaussa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($lisays->error) . '</p>');
+                    die('<p>Tietokantalisäyksessä virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($lisays->error) . '</p>');
                 }
 
                 echo'<p>Tiedot tallennettu onnistuneesti!</p>';

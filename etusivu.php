@@ -79,13 +79,13 @@ echo'<br>
           <ul>
               <li>    <a href="loopit.php">While ja do while</a></li>
                    <li><a href="taulukot.php">Taulukot</a></li>
-                      <li><a href="tiedoston_lisays.php">Tiedoston lisäys</a></li>
-                      <br><a href="tiedostot.php" class="kirjauduttu" >Lisätyt tiedostot</a>
-                       <br><br><li><a href="javascript_harjoittelua.php">JavaScript-harjoittelua</a></li>
+                      <li style="margin-bottom: 8px"><a href="tiedoston_lisays.php" style="margin-right: 20px">Tiedoston lisäys</a>
+                      -><a href="tiedostot.php" class="tiedostot_nappula" style="margin-left: 20px;" >Lisätyt tiedostot</a></li>
+                       <li><a href="javascript_harjoittelua.php">JavaScript-harjoittelua</a></li>
       </ul>';
-        
-echo'<div class="vali"></div>';        
-        
+
+echo'<div class="vali"></div>';
+
 echo'</div>';
 
 include("footer.php");

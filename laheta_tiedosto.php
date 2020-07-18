@@ -4,6 +4,7 @@ ob_start();
 echo'<!DOCTYPE html><html> 
 <head>
 <title> TIEDOSTON LÄHETYS </title>';
+include("header.php");
 include("tietokantayhteys.php");
 require_once("tiedoston_lahetys.php");
 
@@ -13,14 +14,14 @@ if (isset($_FILES['tiedostot'])) {
 
     $tiedostot = $_FILES['tiedostot'];
 
-        
+
     try {
 
 
         $nimi = upload_tarkista('tiedostot', 20.0 * 1024 * 1024);
 
         $koko = count($nimi);
-     
+
         $paateloyty = false;
 
         for ($j = 0; $j < $koko; $j++) {
@@ -53,14 +54,18 @@ if (isset($_FILES['tiedostot'])) {
             $i = 0;
             $parts = pathinfo($nimi2);
             $kohde = "tiedostot/" . $nimi2;
+
+            //jos on jo samanniminen tiedosto, lisätään perään merkki siitä
             while (file_exists($kohde)) {
 
                 $i++;
                 $nimi2 = $parts["filename"] . "(" . $i . ")." . $parts["extension"];
-                $kohde = "tiedostot/" . $nimi2;
+
+                $nimi[$j] = $nimi2;
             }
 
             $kohde = "tiedostot/" . $nimi2;
+
 
             if (!file_exists($kohde)) {
                 // Tarkistetaan kirjoitusoikeus.
@@ -74,13 +79,13 @@ if (isset($_FILES['tiedostot'])) {
                     throw new UploadException("Virhe tiedoston kopioinnissa: {$virhe["message"]}!");
                 }
 
-             
+
 
                 //tallennus
-                $lisays = $yhteys->prepare("INSERT INTO tiedostot (kohde, omatallennusnimi) VALUES (?, ?)");
+                $lisays = $yhteys->prepare("INSERT INTO tiedostot (kohde, nimi) VALUES (?, ?)");
 
                 if (!$lisays) {
-                    die('<p>Tietokantalisäyksessä virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
+                    throw new UploadException('Tietokantalisäyksessä virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error));
                 }
 
                 $lisays->bind_param("ss", $kohde, $nimi[$j]);
@@ -88,24 +93,29 @@ if (isset($_FILES['tiedostot'])) {
 
 
                 if (!$lisays->execute()) {
-                    die('<p>Tietokantahaussa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($lisays->error) . '</p>');
+                    throw new UploadException('Tietokantalisäyksessä virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error));
                 }
             }
 
 
             //kaikki tiedostot kiinni
         }
-    } catch (UploadException $e) {
-
-        die('<b style="font-size: 1em; color: #FF0000">' . $e->getMessage() . '</b><br><br><a href="tiedoston_lisays.php"><p style="font-size: 1.5em; display: inline-block; padding:0; margin: 0">&#8630</p> Palaa takaisin</a><br><br></div></div></div></div><footer class="cm8-containerFooter" style="padding: 20px 0px 20px 0px"><b>Copyright &copy;  <br><a href="admininfo.php">Marianne Sjöberg</b></a></footer>');
-    }
-    
         header("location: tiedosto_lisatty.php");
+    } catch (UploadException $e) {
+        echo' <body>
+   <div style="border: 1px solid  #333333; margin-top: 20px; padding-bottom: 20px">
+         
+        <h2 style="color: red">Tiedoston lisäys epäonnistui! </h2>
+        <p style="font-weight: bold">' . $e->getMessage() . '</p>
+        <p><a href="tiedoston_lisays.php"> &#8617 &nbsp  Palaa takaisin </a></p>';
+
+        echo'<div class="vali"></div>';
+    }
 }
-else{
-         echo'<p>Et lisännyt tiedostoa! </p>
-              <p><a href="tiedoston_lisays.php"> &#8617 &nbsp Palaa takaisin </a></p> ';
-}
+//else{
+//         echo'<p>Et lisännyt tiedostoa! </p>
+//              <p><a href="tiedoston_lisays.php"> &#8617 &nbsp Palaa takaisin </a></p> ';
+//}
 
 echo'</div>';
 echo'</div>';

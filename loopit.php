@@ -28,26 +28,26 @@ echo'<h3> WHILE-looppi:</h3>';
 
 $numero1 = 1;
 
-while($numero1 <= 5) {
-  echo "Numero1 on: $numero1 <br>";
-  $numero1++;
+while ($numero1 <= 5) {
+    echo "Numero1 on: $numero1 <br>";
+    $numero1++;
 }
-echo'<div class="vali"></div>'; 
+echo'<div class="vali"></div>';
 
 echo'<h3> DO WHILE-looppi:</h3>';
 
 $numero2 = 5;
 
 do {
-  echo "Numero2 on: $numero2 <br>";
-  $numero2--;
+    echo "Numero2 on: $numero2 <br>";
+    $numero2--;
 } while ($numero2 > 0);
 
 
 
-        
-echo'<div class="vali"></div>';        
-        
+
+echo'<div class="vali"></div>';
+
 echo'</div>';
 
 include("footer.php");

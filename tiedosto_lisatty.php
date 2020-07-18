@@ -20,12 +20,12 @@ include("header.php");
 echo' <body>
    <div style="border: 1px solid  #333333; margin-top: 20px; padding-bottom: 20px">
          
-        <h2>Tiedosto on lisätty onnistuneesti </h2>
+        <h2>Tiedosto on lisätty onnistuneesti! </h2>
               <p><a href="tiedostot.php">Katso kaikki lisätyt tiedostot tästä -> </a></p> ';
 echo'<div class="vali"></div>';
 
-     
-        
+
+
 echo'</div>';
 
 include("footer.php");

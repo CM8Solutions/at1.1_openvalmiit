@@ -38,9 +38,9 @@ echo'<p>When you submit the form, a function is triggered which alerts some text
 //}
 //
 
-        
-echo'<div class="vali"></div>';        
-        
+
+echo'<div class="vali"></div>';
+
 echo'</div>';
 
 include("footer.php");

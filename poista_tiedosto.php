@@ -23,66 +23,60 @@ if ($_POST[valinta] == "en") {
     header("location: tiedostot.php");
 } else if ($_POST[valinta] == "kylla") {
 
-    $haku = $yhteys->prepare("SELECT id, kohde, omatallennusnimi FROM tiedostot WHERE id=?");
+    $haku = $yhteys->prepare("SELECT id, kohde, nimi FROM tiedostot WHERE id=?");
 
-if (!$haku) {
-    die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
-}
+    if (!$haku) {
+        die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
+    }
 
-$haku->bind_param("i", $id);
+    $haku->bind_param("i", $id);
 
 
     $id = $_POST[id];
 
 
 
-if (!$haku->execute()) {
-    die('<p>Tietokantahaussa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($haku->error) . '</p>');
-}
+    if (!$haku->execute()) {
+        die('<p>Tietokantahaussa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($haku->error) . '</p>');
+    }
 
-$haku->store_result();
-$haku->bind_result($tulos1, $tulos2, $tulos3);
+    $haku->store_result();
+    $haku->bind_result($tulos1, $tulos2, $tulos3);
 
-while ($haku->fetch()) {
-    $id = $tulos1;
-    $kohde = $tulos2;
-    $omatallennusnimi = $tulos3;
-}
-
-    
-if (file_exists($kohde)) {
-            unlink($kohde);
-         $poisto = $yhteys->prepare("DELETE FROM tiedostot WHERE id=?");
-
-    if (!$poisto) {
-        die('<p>Tietokantapoistossa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
+    while ($haku->fetch()) {
+        $id = $tulos1;
+        $kohde = $tulos2;
+        $nimi = $tulos3;
     }
 
 
+    if (file_exists($kohde)) {
+        unlink($kohde);
+        $poisto = $yhteys->prepare("DELETE FROM tiedostot WHERE id=?");
 
-    $poisto->bind_param("i", $id);
-
-    $id = $_POST[id];
-
-
-    if (!$poisto->execute()) {
-        die('<p>Tietokantapoistossa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($poisto->error) . '</p>');
-    }
-    $haku->close();
-    $poisto->close();
+        if (!$poisto) {
+            die('<p>Tietokantapoistossa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
+        }
 
 
-    echo'<p>Tiedoston poisto onnistui! </p>';       
-            
-        
-            
-            
-}
 
-else{
-       echo'<p><b>Tiedoston poisto epäonnistui!</b> 
+        $poisto->bind_param("i", $id);
+
+        $id = $_POST[id];
+
+
+        if (!$poisto->execute()) {
+            die('<p>Tietokantapoistossa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($poisto->error) . '</p>');
+        }
+        $haku->close();
+        $poisto->close();
+
+
+        echo'<p>Tiedoston poisto onnistui! </p>';
+    } else {
+        echo'<p><b>Tiedoston poisto epäonnistui!</b> 
            <br><br>Tiedostoa ei löytynyt</p>';
-}
+    }
 
 
 

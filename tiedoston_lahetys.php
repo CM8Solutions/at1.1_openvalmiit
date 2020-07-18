@@ -25,7 +25,6 @@ class UploadException extends Exception {
  * @param $maksimikoko  suurin sallittu koko tavuina
  * @return string       palauttaa tiedoston alkuperäisen nimen
  */
-
 function upload_tarkista($input, $maksimikoko = null) {
     $array = array();
     // Tarkistetaan, että tiedosto on edes yritetty lähettää.
@@ -83,7 +82,5 @@ function upload_tarkista($input, $maksimikoko = null) {
 
     return $array;
 }
-
-
 
 ?>

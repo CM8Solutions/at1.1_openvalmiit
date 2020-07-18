@@ -19,7 +19,7 @@ echo'<div>';
 echo'<p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
 echo'<div class="vali"></div>';
 
-$haku = $yhteys->prepare("SELECT id, kohde, omatallennusnimi FROM tiedostot");
+$haku = $yhteys->prepare("SELECT id, kohde, nimi FROM tiedostot");
 
 
 if (!$haku) {
@@ -38,18 +38,18 @@ if ($haku->num_rows == 0) {
 } else {
     $haku->bind_result($tulos1, $tulos2, $tulos3);
 
-    
-    echo'<table class="kayttajat_table">';
-    echo'<thead><th>Nimi</th><th>Omatallennusnimi</th></thead>';
+
+    echo'<table class="tiedostot_table">';
+    echo'<thead><th>Nimi</th><th></th></thead>';
 
     echo'<tbody>';
     while ($haku->fetch()) {
         $id = $tulos1;
         $kohde = $tulos2;
-        $omatallennusnimi = $tulos3;
+        $nimi = $tulos3;
 
-        echo'<tr><td><a href="' . $kohde . '</a></td><td>' . $omatallennusnimi . '</td>';
-        echo'<td><form action="poista_tiedosto.php" method="post"><input type="hidden" name="id" value=' . $id . '>
+        echo'<tr><td><a href="' . $kohde . '"> ' . $nimi . '</a></td>';
+        echo'<td><form action="poista_tiedosto_varmennus.php" method="post"><input type="hidden" name="id" value=' . $id . '>
         <input type="submit" class="nappula" name="poista_tiedosto_varmennus" title="Poista tiedosto" value="Poista"></form></td></tr>';
     }
     echo'</tbody></table>';
