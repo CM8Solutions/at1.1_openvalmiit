@@ -222,6 +222,97 @@ footer{
 {
     outline: none;
 }
+/*viestin lähetys*/
+.lomake_viesti fieldset{
+    padding: 5px 5px 20px 20px;
+}
+.lomake_viesti fieldset legend{
+    color: #514E61;
+    border-top: 2px solid #514E61;
+    border-left: 2px solid #514E61;
+    border-right: 2px solid #514E61;
+    border-bottom: 2px solid #514E61;
+    border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+
+    padding: 0px 8px 3px 8px;
+    box-shadow: -0px -1px 2px #514E61;
+    -moz-box-shadow:-0px -1px 2px #514E61;
+    -webkit-box-shadow:-0px -1px 2px #514E61;
+
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.lomake_viesti label{
+    
+   font-weight: bold;
+  
+}
+
+.lomake_viesti input[type=text],
+.lomake_viesti input[type=password],
+.lomake_viesti input[type=email]
+{
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #b9b8bf;
+    outline: none;
+    color: #000;
+    padding: 5px;
+    box-shadow: inset 1px 1px 4px #b9b8bf;
+    -moz-box-shadow: inset 1px 1px 4px #b9b8bf;
+    -webkit-box-shadow: inset 1px 1px 4px #b9b8bf;
+    background: #fff;
+    width: 50%;
+    height:90%;
+    font-size: 0.9em;
+}
+
+.lomake_viesti textarea
+{
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #b9b8bf;
+    outline: none;
+    color: #000;
+    padding: 5px;
+    box-shadow: inset 1px 1px 4px #b9b8bf;
+    -moz-box-shadow: inset 1px 1px 4px #b9b8bf;
+    -webkit-box-shadow: inset 1px 1px 4px #b9b8bf;
+    background: #fff;
+    width: 60%;
+    height: 100px;
+    font-size: 1em;
+}
+
+.lomake_viesti input[type=submit]
+{
+    background-color: blue;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    padding: 4px 6px;
+    border: 2px solid white;
+    font-weight: bold;
+    color: white;
+}
+.lomake_viesti input[type=submit]:hover
+{
+ border: 2px solid blue;
+    cursor:pointer;
+    background-color: white;
+    color: blue;
+}
+.lomake_viesti input[type=submit]:active,
+.lomake_viesti input[type=submit]:focus
+{
+    outline: none;
+}
+
 
 .kayttajat{
     background-color: #555555;
@@ -282,7 +373,11 @@ footer{
     background-color: white;
     color:  blue;
 }
-
+.tiedostot_nappula:active,
+.tiedostot_nappula:focus
+{
+    outline: none;
+}
 
 .nappula{
 
@@ -314,7 +409,11 @@ footer{
     color: blue; 
 }
 
-
+.nappula:active,
+.nappula:focus
+{
+    outline: none;
+}
 /* hi-res laptops and desktops */
 
 @media (min-width: 1281px) {
@@ -322,7 +421,9 @@ footer{
     .lomake{
         max-width: 50%;
     }
-
+    .lomake_viesti{
+        max-width: 50%;
+    }
     h1 {
         font-size: 4vw;
     }
@@ -334,6 +435,9 @@ footer{
 @media (min-width: 1025px) and (max-width: 1280px) {
 
     .lomake{
+        max-width: 50%;
+    }
+        .lomake_viesti{
         max-width: 50%;
     }
     h1 {
@@ -350,13 +454,18 @@ footer{
     .lomake{
         max-width: 60%;
     }
-
+   .lomake_viesti{
+        max-width: 60%;
+    }
 }
 
 /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
 
 @media (min-width: 641px) and (max-width: 960px) {
     .lomake{
+        max-width: 80%;
+    }
+        .lomake_viesti{
         max-width: 80%;
     }
     body {

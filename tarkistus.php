@@ -22,7 +22,7 @@ echo'    <body>
 
 
 
-$haku = $yhteys->prepare("SELECT tunnus, salasana, id FROM kayttajat WHERE BINARY tunnus=?");
+$haku = $yhteys->prepare("SELECT tunnus, salasana, id, sposti FROM kayttajat WHERE BINARY tunnus=?");
 if (!$haku) {
     die('<p>Tietokantahaussa virhe (prepare()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($yhteys->error) . '</p>');
 }
@@ -38,7 +38,7 @@ if (!$haku->execute()) {
 
 $haku->store_result();
 
-$haku->bind_result($tulos1, $tulos2, $tulos3);
+$haku->bind_result($tulos1, $tulos2, $tulos3, $tulos4);
 
 
 if ($haku->num_rows == 0) {
@@ -51,6 +51,7 @@ if ($haku->num_rows == 0) {
         $tunnus = $tulos1;
         $salasana = $tulos2;
         $id = $tulos3;
+                $sposti = $tulos4;
     }
     $haku->close();
     $haku2 = $yhteys->prepare("SELECT * FROM kayttajat WHERE BINARY tunnus=? AND BINARY salasana=?");
@@ -85,6 +86,7 @@ if ($haku->num_rows == 0) {
 
         $_SESSION[tunnus] = $tunnus;
         $_SESSION[id] = $id;
+          $_SESSION[sposti] = $sposti;
         echo' <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
     }
 

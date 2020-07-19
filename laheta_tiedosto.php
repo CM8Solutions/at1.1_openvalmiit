@@ -54,18 +54,18 @@ if (isset($_FILES['tiedostot'])) {
             $i = 0;
             $parts = pathinfo($nimi2);
             $kohde = "tiedostot/" . $nimi2;
+            
 
             //jos on jo samanniminen tiedosto, lisätään perään merkki siitä
-            while (file_exists($kohde)) {
+            if(file_exists($kohde)){
 
                 $i++;
                 $nimi2 = $parts["filename"] . "(" . $i . ")." . $parts["extension"];
 
                 $nimi[$j] = $nimi2;
+                    $kohde = "tiedostot/" . $nimi2;
+                
             }
-
-            $kohde = "tiedostot/" . $nimi2;
-
 
             if (!file_exists($kohde)) {
                 // Tarkistetaan kirjoitusoikeus.

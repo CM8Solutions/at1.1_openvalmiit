@@ -1,22 +1,7 @@
 <?php
+session_start();
 
 include("tietokantayhteys.php");
-
-echo'<!DOCTYPE html>
-
-<html>
-    <head>
-        <title>Muokkaa käyttäjän tietoja</title>';
-include("header.php");
-
-
-
-echo '<body>';
-
-
-echo'<div>';
-echo'<div class="vali"></div>';
-
 $haku = $yhteys->prepare("SELECT id, etunimi, sukunimi, sposti, tunnus, koodikielet, koodauskokemus_sanallinen, koodauskokemus_arvio FROM kayttajat WHERE id=?");
 
 if (!$haku) {
@@ -32,8 +17,6 @@ if (isset($_POST[id])) {
 
     $id = $_GET[id];
 }
-
-
 if (!$haku->execute()) {
     die('<p>Tietokantahaussa virhe (execute()-toiminto epäonnistui). <br>Syy: ' . htmlspecialchars($haku->error) . '</p>');
 }
@@ -56,6 +39,23 @@ while ($haku->fetch()) {
     $kokemus_sanallinen = htmlspecialchars_decode($kokemus_sanallinen);
     $kokemus_arvio = $tulos8;
 }
+
+
+echo'<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>'.$etunimi.' ' .$sukunimi.'</title>';
+include("header.php");
+
+
+
+echo '<body>';
+
+
+echo'<div>';
+echo'<div class="vali"></div>';
+
 
 
 if (isset($_POST[muokkaa]) || isset($_GET[muokkaa])) {
@@ -163,19 +163,27 @@ if (isset($_POST[muokkaa]) || isset($_GET[muokkaa])) {
     echo'<button type = "submit" value = "en" name = "valinta" class="nappula">En</button>';
 
     echo'</form>';
-} else if (isset($_POST[viesti])) {
+} else if (isset($_POST[viesti]) || isset($_GET[viesti])) {
 
-    echo'<h3>Lähetä viesti käyttäjälle ' . $etunimi . ' ' . $sukunimi . '</h3>';
-    echo'<p><a href="kayttajat".php"> &#8617 &nbsp  Palaa takaisin </a></p>';
+    
     echo'<form action="laheta_viesti.php" method="post" class="lomake_viesti">';
     echo'<fieldset>';
+    echo'<legend>Lähetä viesti käyttäjälle ' . $etunimi . ' ' . $sukunimi . '</legend>';
+echo'<p><a href="kayttajat".php"> &#8617 &nbsp  Palaa takaisin </a></p>';
+         echo'<p style="font-size: 1em; font-weight: bold; color: red">Tähdellä * merkityt tiedot ovat pakollisia.</p>';
 
-
-    echo'<p>Viesti:</p>';
+ echo'<br><label>Lähettäjän sähköpostiosoite: <b style="margin-left: 10px; color: red">*</b></label>';
+ echo'<br><input type="email" name="lahettaja" value='.$_SESSION[sposti].'>';
+ 
+  echo'<br><br><label>Vastaanottajan sähköpostiosoite:</label> &nbsp&nbsp&nbsp'. $sposti;
+    echo' <input type="hidden" name="vastaanottaja" value=' . $sposti . '>';
+echo'<br><br><label>Otsikko: <b style="margin-left: 10px; color: red">*</b></label><br>';
+    echo'<input type="text" name="otsikko">';
+    echo'<br><br><label>Viesti: <b style="margin-left: 10px; color: red">*</b></label><br>';
     echo'<textarea name="viesti"></textarea>
-    <input type="hidden" value=' . $id . '>';
+    <input type="hidden" name="id" value=' . $id . '>';
 
-    echo'<input type = "submit" value = "Lähetä"  class="nappula">';
+    echo'<br><br><input type = "submit" value = "Lähetä">';
 
     echo'</form>';
 } else {
