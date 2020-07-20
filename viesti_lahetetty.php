@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,7 +22,7 @@ include("header.php");
 echo' <body>
    <div style="border: 1px solid  #333333; margin-top: 20px; padding-bottom: 20px">
          
-        <h2>Viestisi on lähetetty </h2>
+        <h3>Viestisi on lähetetty! </h3>
               <p><a href="kayttajat.php">&#8617 &nbsp Palaa käyttäjät-osioon </a></p> ';
 echo'<div class="vali"></div>';
 

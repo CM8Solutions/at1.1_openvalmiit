@@ -1,6 +1,6 @@
 <?php
 ob_start();
-ob_start();
+
 echo'<!DOCTYPE html><html> 
 <head>
 <title> TIEDOSTON LÄHETYS </title>';
@@ -54,17 +54,16 @@ if (isset($_FILES['tiedostot'])) {
             $i = 0;
             $parts = pathinfo($nimi2);
             $kohde = "tiedostot/" . $nimi2;
-            
+
 
             //jos on jo samanniminen tiedosto, lisätään perään merkki siitä
-            if(file_exists($kohde)){
+            if (file_exists($kohde)) {
 
                 $i++;
                 $nimi2 = $parts["filename"] . "(" . $i . ")." . $parts["extension"];
 
                 $nimi[$j] = $nimi2;
-                    $kohde = "tiedostot/" . $nimi2;
-                
+                $kohde = "tiedostot/" . $nimi2;
             }
 
             if (!file_exists($kohde)) {

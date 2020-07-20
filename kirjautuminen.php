@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 echo'<!DOCTYPE html>
 
 <html>
@@ -10,13 +12,10 @@ include("header.php");
 
 
 echo'  <body>
-  
-         <header>
-        <h1>Kirjaudu sisään: </h1>
-        
-    </header>
-        
+
+     
         <div>
+                   <h2>Kirjaudu sisään: </h2>
             <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>
             <br>
             <form action="tarkistus.php" method="POST" class="lomake">

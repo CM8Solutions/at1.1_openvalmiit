@@ -1,4 +1,6 @@
 <?php
+
+ob_start();
 session_start();
 
 include("tietokantayhteys.php");
@@ -45,7 +47,7 @@ echo'<!DOCTYPE html>
 
 <html>
     <head>
-        <title>'.$etunimi.' ' .$sukunimi.'</title>';
+        <title>' . $etunimi . ' ' . $sukunimi . '</title>';
 include("header.php");
 
 
@@ -165,19 +167,19 @@ if (isset($_POST[muokkaa]) || isset($_GET[muokkaa])) {
     echo'</form>';
 } else if (isset($_POST[viesti]) || isset($_GET[viesti])) {
 
-    
+
     echo'<form action="laheta_viesti.php" method="post" class="lomake_viesti">';
     echo'<fieldset>';
     echo'<legend>Lähetä viesti käyttäjälle ' . $etunimi . ' ' . $sukunimi . '</legend>';
-echo'<p><a href="kayttajat".php"> &#8617 &nbsp  Palaa takaisin </a></p>';
-         echo'<p style="font-size: 1em; font-weight: bold; color: red">Tähdellä * merkityt tiedot ovat pakollisia.</p>';
+    echo'<p><a href="kayttajat".php"> &#8617 &nbsp  Palaa takaisin </a></p>';
+    echo'<p style="font-size: 1em; font-weight: bold; color: red">Tähdellä * merkityt tiedot ovat pakollisia.</p>';
 
- echo'<br><label>Lähettäjän sähköpostiosoite: <b style="margin-left: 10px; color: red">*</b></label>';
- echo'<br><input type="email" name="lahettaja" value='.$_SESSION[sposti].'>';
- 
-  echo'<br><br><label>Vastaanottajan sähköpostiosoite:</label> &nbsp&nbsp&nbsp'. $sposti;
+    echo'<br><label>Lähettäjän sähköpostiosoite: <b style="margin-left: 10px; color: red">*</b></label>';
+    echo'<br><input type="email" name="lahettaja" value=' . $_SESSION[sposti] . '>';
+
+    echo'<br><br><label>Vastaanottajan sähköpostiosoite:</label> &nbsp&nbsp&nbsp' . $sposti;
     echo' <input type="hidden" name="vastaanottaja" value=' . $sposti . '>';
-echo'<br><br><label>Otsikko: <b style="margin-left: 10px; color: red">*</b></label><br>';
+    echo'<br><br><label>Otsikko: <b style="margin-left: 10px; color: red">*</b></label><br>';
     echo'<input type="text" name="otsikko">';
     echo'<br><br><label>Viesti: <b style="margin-left: 10px; color: red">*</b></label><br>';
     echo'<textarea name="viesti"></textarea>

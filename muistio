@@ -1,9 +1,7 @@
 
-* headers. nimi suomeksi, TESTAA!!!
-
 *	JavaScript + alert jne. helpot
-*       post ja get ero
-*       a-linkki ja getit
+
+
 
 
 *******************************************************************************
@@ -67,7 +65,7 @@ TEKSTI:  (font-size:10vw;   1vw = 1% of viewport width)
 
 JOS HEADER LOCATION EI TOIMI:
 
-<?php pitää olla ihan alussa
+<?php ob_start(); pitää olla ihan alussa
  + 
 ob_start() alkuun
 

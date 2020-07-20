@@ -1,6 +1,7 @@
 <?php
 
 ob_start();
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -44,14 +45,14 @@ if ($_POST[valinta] == "en") {
 
 
 
-    echo'<p>Käyttäjän poisto onnistui! </p>';
+    echo'<h2>Käyttäjän poisto onnistui! </h2>';
 
-    $headers .= "Organization: AT1.1 Internet ja verkkosivut\r\n";
-    $headers .= "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: AT1.1 Internet ja verkkosivut <no-reply@syksy2020.tylykoodaa.fi>" . "\r\n";
-    $headers .= "X-Priority: 3\r\n";
-    $headers .= "X-Mailer: PHP" . phpversion() . "\r\n";
+    $tunnisteet .= "Organization: AT1.1 Internet ja verkkosivut\r\n";
+    $tunnisteet .= "MIME-Version: 1.0" . "\r\n";
+    $tunnisteet .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $tunnisteet .= "From: AT1.1 Internet ja verkkosivut <no-reply@syksy2020.tylykoodaa.fi>" . "\r\n";
+    $tunnisteet .= "X-Priority: 3\r\n";
+    $tunnisteet .= "X-Mailer: PHP" . phpversion() . "\r\n";
 
     $otsikko = "Tietosi on poistettu sivustolta syksy2020.tylykoodaa.fi/ope";
     $otsikko = "=?UTF-8?B?" . base64_encode($otsikko) . "?=";
@@ -62,12 +63,12 @@ if ($_POST[valinta] == "en") {
 
     $sposti = $_POST[sposti];
 
-    $lahetys = mail($sposti, $otsikko, $viesti, $headers);
+    $lahetys = mail($sposti, $otsikko, $viesti, $tunnisteet);
 
     if ($lahetys) {
-        echo'<p> Viesti lähetetty!</p>';
+        echo'<p style="font-weight: bold"> Viesti lähetetty!</p>';
     } else {
-        echo'<p>Viestiä ei pystytty lähettämään osoitteeseen ' . $sposti;
+        echo'<p style="font-weight: bold">Viestiä ei pystytty lähettämään osoitteeseen ' . $sposti;
         echo'<br><br>';
         print_r(error_get_last());
     }

@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -77,11 +79,13 @@ echo'<div class="vali"></div>';
 echo'<br>
           <h3>Extra-harjoittelua: </h3>
           <ul>
+              <li><a href="post_ja_git.php">POST:n ja GET:n erot</a></li>
               <li>    <a href="loopit.php">While ja do while</a></li>
                    <li><a href="taulukot.php">Taulukot</a></li>
                       <li style="margin-bottom: 8px"><a href="tiedoston_lisays.php" style="margin-right: 20px">Tiedoston lisäys</a>
                       -><a href="tiedostot.php" class="tiedostot_nappula" style="margin-left: 20px;" >Lisätyt tiedostot</a></li>
                        <li><a href="javascript_harjoittelua.php">JavaScript-harjoittelua</a></li>
+                       
       </ul>';
 
 echo'<div class="vali"></div>';

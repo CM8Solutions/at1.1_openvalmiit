@@ -1,6 +1,8 @@
 <?php
 
 ob_start();
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -72,10 +74,10 @@ if ($_POST[valinta] == "en") {
         $poisto->close();
 
 
-        echo'<p>Tiedoston poisto onnistui! </p>';
+        echo'<h3>Tiedoston poisto onnistui! </h3>';
     } else {
-        echo'<p><b>Tiedoston poisto epäonnistui!</b> 
-           <br><br>Tiedostoa ei löytynyt</p>';
+        echo'<h3>Tiedoston poisto epäonnistui!</h3> 
+           <br><b>Tiedostoa ei löytynyt</b>';
     }
 
 

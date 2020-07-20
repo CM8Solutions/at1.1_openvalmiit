@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 include("tietokantayhteys.php");
 
 echo'<!DOCTYPE html>
@@ -9,13 +11,11 @@ echo'<!DOCTYPE html>
         <title>Tiedostot</title>';
 include("header.php");
 
-echo '<body>
-           <header>
-        <h2>Tietokantaan lisätyt tiedostot </h2>
+echo '<body>';
 
-    </header>';
 
 echo'<div>';
+echo'<h2>Tietokantaan lisätyt tiedostot </h2>';
 echo'<p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
 echo'<div class="vali"></div>';
 

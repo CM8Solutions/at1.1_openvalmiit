@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 // Paikkaillaan PHP:n vanhempien versioiden puutteita; nykyversioilla nämä eivät ole tarpeen.
 defined("UPLOAD_ERR_OK") || define("UPLOAD_ERR_OK", 0);
 defined("UPLOAD_ERR_INI_SIZE") || define("UPLOAD_ERR_INI_SIZE", 1);

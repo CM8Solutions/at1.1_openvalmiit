@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 $yhteys = mysqli_connect('mysql2.shellit.org', 'u60224', 'atsjm2020', 'u60224B1');
 
 

@@ -14,19 +14,23 @@ echo'<!DOCTYPE html>
 
 <html>
     <head>
-        <title>TIEDOSTO LISÄTTY ONNISTUNEESTI</title>';
+        <title>POST-lomakkeen lähetys</title>';
 
 include("header.php");
 
 
 echo' <body>
-   <div style="border: 1px solid  #333333; margin-top: 20px; padding-bottom: 20px">
+   <div>
          
-        <h2>Tiedosto on lisätty onnistuneesti! </h2>
-              <p><a href="tiedostot.php">Katso kaikki lisätyt tiedostot tästä -> </a></p> ';
+        <h2>POST-lomakkeen lähetys</h2>
+      <p><a href="post_ja_git.php"> &#8617 &nbsp Palaa  takaisin </a></p> ';
 echo'<div class="vali"></div>';
 
-
+if (!empty($_POST[arvo])) {
+    echo'<p>Lähetetyn tekstin arvo on <b>' . $_POST[arvo] . '</b></p>';
+} else {
+    echo'<p style="font-weight: bold">Lähetetty kenttä on tyhjä!</p>';
+}
 
 echo'</div>';
 

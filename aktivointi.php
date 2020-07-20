@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -58,12 +60,12 @@ if ($haku->num_rows == 0) {
     $haku->close();
 
 
-    $headers .= "Organization: AT1.1 Internet ja verkkosivut\r\n";
-    $headers .= "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: AT1.1 Internet ja verkkosivut <no-reply@syksy2020.tylykoodaa.fi>" . "\r\n";
-    $headers .= "X-Priority: 3\r\n";
-    $headers .= "X-Mailer: PHP" . phpversion() . "\r\n";
+    $tunnisteet .= "Organization: AT1.1 Internet ja verkkosivut\r\n";
+    $tunnisteet .= "MIME-Version: 1.0" . "\r\n";
+    $tunnisteet .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $tunnisteet .= "From: AT1.1 Internet ja verkkosivut <no-reply@syksy2020.tylykoodaa.fi>" . "\r\n";
+    $tunnisteet .= "X-Priority: 3\r\n";
+    $tunnisteet .= "X-Mailer: PHP" . phpversion() . "\r\n";
 
 
     $otsikko = "Viesti sivustolta syksy2020.tylykoodaa.fi/ope";
@@ -74,14 +76,14 @@ if ($haku->num_rows == 0) {
     $viesti = str_replace("\n.", "\n..", $viesti);
 
     $sposti = $_POST[sposti];
-    $lahetys = mail($sposti, $otsikko, $viesti, $headers);
+    $lahetys = mail($sposti, $otsikko, $viesti, $tunnisteet);
 
     if ($lahetys) {
-        echo'<p>Linkki tunnuksen uudelleen aktivointiin on lähetetty antamaasi sähköpostiosoitteeseen!</p>';
+        echo'<h3>Linkki tunnuksen uudelleen aktivointiin on lähetetty antamaasi sähköpostiosoitteeseen!</h3>';
 
         echo' <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
     } else {
-        echo'<p>Viestiä ei pystytty lähettämään osoitteeseen ' . $sposti;
+        echo'<h3>Viestiä ei pystytty lähettämään osoitteeseen ' . $sposti . '</h3>';
         echo'<br><br>';
         print_r(error_get_last());
         echo' <p><a href="unohtunut_tunnus.php"> &#8617 &nbsp  Palaa takaisin </a></p>';

@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 include("tietokantayhteys.php");
 
 echo'<!DOCTYPE html>
@@ -12,13 +14,11 @@ include("header.php");
 
 
 
-echo '<body>
-           <header>
-        <h2>Tietokantaan tallennetut käyttäjät </h2>
+echo '<body>';
 
-    </header>';
 
 echo'<div>';
+echo '<h2>Tietokantaan tallennetut käyttäjät </h2>';
 echo'<p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
 echo'<div class="vali"></div>';
 

@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 session_start();
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -76,12 +78,12 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
 
             echo'<p>Tiedot tallennettu onnistuneesti!</p>';
 
-            $headers .= "Organization: AT1.1 Internet ja verkkosivut\r\n";
-            $headers .= "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-            $headers .= "From: AT1.1 Internet ja verkkosivut <no-reply@syksy2020.tylykoodaa.fi>" . "\r\n";
-            $headers .= "X-Priority: 3\r\n";
-            $headers .= "X-Mailer: PHP" . phpversion() . "\r\n";
+            $tunnisteet .= "Organization: AT1.1 Internet ja verkkosivut\r\n";
+            $tunnisteet .= "MIME-Version: 1.0" . "\r\n";
+            $tunnisteet .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            $tunnisteet .= "From: AT1.1 Internet ja verkkosivut <no-reply@syksy2020.tylykoodaa.fi>" . "\r\n";
+            $tunnisteet .= "X-Priority: 3\r\n";
+            $tunnisteet .= "X-Mailer: PHP" . phpversion() . "\r\n";
 
 
             $otsikko = "Tietojasi on muutettu sivustolla syksy2020.tylykoodaa.fi/ope";
@@ -92,12 +94,12 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
             $viesti = str_replace("\n.", "\n..", $viesti);
 
 
-            $lahetys = mail($sposti, $otsikko, $viesti, $headers);
+            $lahetys = mail($sposti, $otsikko, $viesti, $tunnisteet);
 
             if ($lahetys) {
-                echo'<p> Viesti lähetetty!</p>';
+                echo'<p style="font-weight: bold"> Viesti lähetetty!</p>';
             } else {
-                echo'<p>Viestiä ei pystytty lähettämään osoitteeseen ' . $sposti;
+                echo'<p style="font-weight: bold">Viestiä ei pystytty lähettämään osoitteeseen ' . $sposti;
                 echo'<br><br>';
                 print_r(error_get_last());
             }

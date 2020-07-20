@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 echo'<!DOCTYPE html>
 
 <html>

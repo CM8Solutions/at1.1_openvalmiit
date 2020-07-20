@@ -1,6 +1,7 @@
 <?php
 ob_start();
-ob_start();
+
+
 echo'<!DOCTYPE html>
 <html>
  
@@ -14,37 +15,38 @@ echo'<!DOCTYPE html>
 
 session_start(); // ready to go!
 
-//TYHJÄ LÄHETTÄJÄ TAI TYHJÄ VIESTI:
 include("header.php");
 echo '<div>';
-if (empty($_POST[lahettaja]) || empty($_POST[viesti]) || empty($_POST[otsikko])){
+if (empty($_POST[lahettaja]) || empty($_POST[viesti]) || empty($_POST[otsikko])) {
     echo'<p>Et täyttänyt kaikkia kenttiä!</p>';
 
-    echo' <p><a href="muokkaa_kayttaja.php?id='.$_POST[id].'&viesti"> &#8617 &nbsp  Palaa takaisin </a></p>';
-}
-else{
-    $headers .= "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-$headers .= "X-Priority: 3\r\n";
-$headers .= "X-Mailer: PHP" . phpversion() . "\r\n";
-
-$headers .= "From: <" . $_POST[lahettaja] . ">\r\n";
-
-$otsikko = $_POST[otsikko];
-$viesti = $_POST[viesti];
- $viesti = str_replace("\n.", "\n..", $viesti);
-$viesti = nl2br($viesti);
-
-$sposti = $_POST[vastaanottaja];
-
-$lahetys = mail($sposti, $otsikko, $viesti, $headers);
-if ($lahetys) {
-    header("location: viesti_lahetetty.php");
+    echo' <p><a href="muokkaa_kayttaja.php?id=' . $_POST[id] . '&viesti"> &#8617 &nbsp  Palaa takaisin </a></p>';
 } else {
-    echo "<br>Viestin lähettäminen ei onnistunut. Yritä uudelleen!";
-    echo' <p><a href="muokkaa_kayttaja.php?id='.$_POST[id].'&viesti"> &#8617 &nbsp  Palaa takaisin </a></p>';
-}
+    $tunnisteet .= "Organization: AT1.1 Internet ja verkkosivut\r\n";
+    $tunnisteet .= "MIME-Version: 1.0" . "\r\n";
+    $tunnisteet .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $tunnisteet .= "From: <" . $_POST[lahettaja] . ">\r\n";
+    $tunnisteet .= "X-Priority: 3\r\n";
+    $tunnisteet .= "X-Mailer: PHP" . phpversion() . "\r\n";
+
+
+    $otsikko = $_POST[otsikko];
+    $otsikko = "=?UTF-8?B?" . base64_encode($otsikko) . "?=";
+
+
+    $viesti = $_POST[viesti];
+    $viesti = str_replace("\n.", "\n..", $viesti);
+    $viesti = nl2br($viesti);
+
+    $sposti = $_POST[vastaanottaja];
+
+    $lahetys = mail($sposti, $otsikko, $viesti, $tunnisteet);
+    if ($lahetys) {
+        header("location: viesti_lahetetty.php");
+    } else {
+        echo "<h3>Viestin lähettäminen ei onnistunut. Yritä uudelleen!</h3>";
+        echo' <p><a href="muokkaa_kayttaja.php?id=' . $_POST[id] . '&viesti"> &#8617 &nbsp  Palaa takaisin </a></p>';
+    }
 }
 
 

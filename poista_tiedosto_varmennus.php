@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 include("tietokantayhteys.php");
 
 echo'<!DOCTYPE html>
