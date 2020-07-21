@@ -66,7 +66,7 @@ if ($_POST[valinta] == "en") {
     $lahetys = mail($sposti, $otsikko, $viesti, $tunnisteet);
 
     if ($lahetys) {
-        echo'<p style="font-weight: bold"> Viesti lähetetty!</p>';
+        echo'<p style="font-weight: bold">Viesti poistosta on lähetetty käyttäjän sähköpostiosoitteeseen!</p>';
     } else {
         echo'<p style="font-weight: bold">Viestiä ei pystytty lähettämään osoitteeseen ' . $sposti;
         echo'<br><br>';

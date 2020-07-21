@@ -1,7 +1,7 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+function Tallenna() {
+    var nimi = document.getElementById("nimi").value;
 
+    alert("Lomake on tallennettu!\nLähetetty nimi on " + nimi);
 
+    document.getElementById("vaihdettu").innerHTML = "Vaihdettu arvo";
+}

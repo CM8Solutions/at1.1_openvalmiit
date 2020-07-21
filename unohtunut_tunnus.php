@@ -12,13 +12,9 @@ include("header.php");
 
 
 echo'  <body>
-  
-         <header>
-        <h1>Tunnuksen ja salasanan uudelleen aktivointi </h1>
-        
-    </header>
         
         <div>
+         <h2>Tunnuksen ja salasanan uudelleen aktivointi </h2>
             <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>
             <br>
             <form action="aktivointi.php" method="POST" class="lomake">

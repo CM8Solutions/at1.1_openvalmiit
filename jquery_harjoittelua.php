@@ -14,7 +14,7 @@ echo'<!DOCTYPE html>
 
 <html>
     <head>
-        <title>JAVASCRIPT-HARJOITTELUA</title>';
+        <title>JQUERY-HARJOITTELUA</title>';
 
 echo'<head>
      
@@ -23,7 +23,7 @@ echo'<head>
         <link rel="shortcut icon" href="images/favicon.png" type="image/png">
         <link href="https://fonts.googleapis.com/css?family=Architects Daughter" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="ulkoasu.css">
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
 <script src="javascript_funktioita.js" language="javascript" type="text/javascript"></script> 
 
     </head>';
@@ -32,7 +32,7 @@ echo'<head>
 echo' <body>
    <div>
          
-        <h2>Harjoitellaan JavaScript-funktioita. </h2>
+        <h2>Harjoitellaan jQuery-funktioita. </h2>
          <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
 
 

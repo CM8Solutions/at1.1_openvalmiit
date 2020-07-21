@@ -23,58 +23,6 @@ table{
     display:table
 }
 
-.kayttajat_table{
-    width: 100%;
-
-}
-
-.kayttajat_table th{
-    color: blue;
-    border: 1px solid grey;
-    padding: 4px 6px;
-}
-
-.kayttajat_table td{
-    border: 1px solid grey;
-    padding: 4px 6px;
-}
-.kayttajat_table tr th:last-child,
-.kayttajat_table tr td:last-child {
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-}
-
-.tiedostot_table{
-    width: 100%;
-    color: black;
-}
-.tiedostot_table a{
-
-    color: black;
-}
-
-.tiedostot_table th{
-
-    border: 1px solid grey;
-    text-align: left;
-    padding: 4px 6px;
-}
-
-.tiedostot_table td{
-    border: 1px solid grey;
-    padding: 4px 6px;
-
-}
-.tiedostot_table tr th:last-child,
-.tiedostot_table tr td:last-child {
-    border: none;
-    margin-top: 4px;
-
-}
-
-
-
 img{
     max-width: 80%;
     max-height: 300px;
@@ -107,26 +55,21 @@ a:hover{
     font-weight: bold;
 }
 
+header{
+    padding-left: 20px;
+    border: 1px solid #333333;
+    margin-bottom: 10px;
+}
+
 div{
     padding: 10px 20px 20px 20px;
     border: 1px solid #333333;
 }
-header{
-    padding-left: 20px;
 
-}
 
 .vali{
     padding: 5px;
     border: none;
-}
-
-.kuva{
-
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-
 }
 
 footer{
@@ -139,6 +82,16 @@ footer{
     text-align: center;
     font-weight: bold;
 }
+
+.kuva{
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+
+}
+
+
 
 
 
@@ -223,6 +176,60 @@ footer{
 {
     outline: none;
 }
+
+
+
+.kayttajat_table{
+    width: 100%;
+
+}
+
+.kayttajat_table th{
+    color: blue;
+    border: 1px solid grey;
+    padding: 4px 6px;
+}
+
+.kayttajat_table td{
+    border: 1px solid grey;
+    padding: 4px 6px;
+}
+.kayttajat_table tr th:last-child,
+.kayttajat_table tr td:last-child {
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.tiedostot_table{
+    width: 100%;
+    color: black;
+}
+.tiedostot_table a{
+
+    color: black;
+}
+
+.tiedostot_table th{
+
+    border: 1px solid grey;
+    text-align: left;
+    padding: 4px 6px;
+}
+
+.tiedostot_table td{
+    border: 1px solid grey;
+    padding: 4px 6px;
+
+}
+.tiedostot_table tr th:last-child,
+.tiedostot_table tr td:last-child {
+    border: none;
+    margin-top: 4px;
+
+}
+
+
 /*viestin lähetys*/
 .lomake_viesti fieldset{
     padding: 5px 5px 20px 20px;

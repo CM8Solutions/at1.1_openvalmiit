@@ -21,16 +21,16 @@ include("header.php");
 
 echo' <body>
   
-         <header style="border: 1px solid  #333333;">
+         <header>
         <h1>Harjoitellaan koodausta 	&#129321 </h1>
         
     </header>
         
-        <div style="border: 1px solid  #333333; margin-top: 20px; padding-bottom: 20px">
+        <div>
             
             <p style="font-size: 1em; color: blue">Hello World!</p>
             
-<div  style="text-align: center">
+<div  style="border: none; text-align: center">
             <img class="kuva" src="https://i.imgur.com/2w4sYoJ.png" >
             
 </div>
@@ -55,7 +55,8 @@ echo' <body>
 
 <br>
           <h3>Linkit toisille sivuille: </h3>
-                  <a href="rekisteroityminen.php"><u>Tämä linkki vie sivulle rekisteroityminen.php</u></a>
+           <a href="post_ja_git.php"><u>Tämä linkki vie sivulle, jossa esitetään POST:n ja GET:n erot >> </u></a><br>
+                  <a href="rekisteroityminen.php"><u>Tämä linkki vie sivulle rekisteroityminen.php >> </u></a>
       <br> <br>           
  <h3>Tallennetut käyttäjät: </h3>
                   <a href="kayttajat.php" class="kayttajat" >Käyttäjät</a>';
@@ -79,12 +80,13 @@ echo'<div class="vali"></div>';
 echo'<br>
           <h3>Extra-harjoittelua: </h3>
           <ul>
-              <li><a href="post_ja_git.php">POST:n ja GET:n erot</a></li>
+             
               <li>    <a href="loopit.php">While ja do while</a></li>
                    <li><a href="taulukot.php">Taulukot</a></li>
                       <li style="margin-bottom: 8px"><a href="tiedoston_lisays.php" style="margin-right: 20px">Tiedoston lisäys</a>
                       -><a href="tiedostot.php" class="tiedostot_nappula" style="margin-left: 20px;" >Lisätyt tiedostot</a></li>
                        <li><a href="javascript_harjoittelua.php">JavaScript-harjoittelua</a></li>
+                       <li><a href="jquery_harjoittelua.php">jQuery-harjoittelua</a></li>
                        
       </ul>';
 

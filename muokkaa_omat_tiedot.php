@@ -97,7 +97,7 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
             $lahetys = mail($sposti, $otsikko, $viesti, $tunnisteet);
 
             if ($lahetys) {
-                echo'<p style="font-weight: bold"> Viesti lähetetty!</p>';
+                echo'<p style="font-weight: bold">Viesti tietojesi muokkauksesta on lähetetty sähköpostiosoitteeseesi!</p>';
             } else {
                 echo'<p style="font-weight: bold">Viestiä ei pystytty lähettämään osoitteeseen ' . $sposti;
                 echo'<br><br>';
