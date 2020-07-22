@@ -13,7 +13,7 @@ echo'<!DOCTYPE html>
 <html>
     <head>
         <title>Muokkaa omia tietoja</title>';
-include("header.php");
+include("ylatunniste.php");
 include("tietokantayhteys.php");
 
 
@@ -112,7 +112,7 @@ if (empty($_POST[etunimi]) || empty($_POST[sukunimi]) || empty($_POST[sposti]) |
 
 echo'</div>';
 
-include('footer.php');
+include('alatunniste.php');
 
 echo '</body>
 </html>';

@@ -7,7 +7,7 @@ echo'<!DOCTYPE html>
 <html>
     <head>
         <title>Salasanan vaihto</title>';
-include("header.php");
+include("ylatunniste.php");
 
 
 
@@ -44,7 +44,7 @@ echo'  <body>
         </div>';
 
 
-include('footer.php');
+include('alatunniste.php');
 
 echo '</body>
 </html>';

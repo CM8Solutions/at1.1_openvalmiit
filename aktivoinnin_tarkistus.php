@@ -13,7 +13,7 @@ echo'<!DOCTYPE html>
 <html>
     <head>
         <title>Tunnuksen uudelleen aktivoinnin tarkistus</title>';
-include("header.php");
+include("ylatunniste.php");
 include("tietokantayhteys.php");
 
 
@@ -90,7 +90,7 @@ if (empty($_POST[tunnus]) || empty($_POST[salasana]) || empty($_POST[salasana2])
 
 echo'</div>';
 
-include('footer.php');
+include('alatunniste.php');
 
 echo '</body>
 </html>';

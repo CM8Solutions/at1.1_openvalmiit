@@ -16,7 +16,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>POST JA GET</title>';
 
-include("header.php");
+include("ylatunniste.php");
 
 
 echo' <body>
@@ -63,7 +63,7 @@ echo'<a href="arvot_linkissa.php?vuosi=2020&maa=' . $maa . '">arvot_linkissa.php
 
 echo'</div>';
 
-include("footer.php");
+include("alatunniste.php");
 
 echo '</body>
 </html>';

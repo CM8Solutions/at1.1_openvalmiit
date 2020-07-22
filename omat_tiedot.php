@@ -10,7 +10,7 @@ echo'<!DOCTYPE html>
 <html>
     <head>
         <title>Omat tiedot</title>';
-include("header.php");
+include("ylatunniste.php");
 
 
 
@@ -95,7 +95,7 @@ echo'<div class = "vali"></div>';
 echo'</div>';
 
 
-include('footer.php');
+include('alatunniste.php');
 
 echo '</body>
         </html>';

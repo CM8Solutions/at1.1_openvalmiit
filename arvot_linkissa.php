@@ -16,7 +16,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>Arvojen lähetys linkissä</title>';
 
-include("header.php");
+include("ylatunniste.php");
 
 
 echo' <body>
@@ -36,7 +36,7 @@ echo'<p style="color: red; font-weight: bold">Katso miten nämä arvot näkyy ny
 
 echo'</div>';
 
-include("footer.php");
+include("alatunniste.php");
 
 echo '</body>
 </html>';

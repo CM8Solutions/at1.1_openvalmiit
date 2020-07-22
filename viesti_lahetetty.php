@@ -16,7 +16,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>VIESTI LÄHETETTY ONNISTUNEESTI</title>';
 
-include("header.php");
+include("ylatunniste.php");
 
 
 echo' <body>
@@ -30,7 +30,7 @@ echo'<div class="vali"></div>';
 
 echo'</div>';
 
-include("footer.php");
+include("alatunniste.php");
 
 echo '</body>
 </html>';

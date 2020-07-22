@@ -16,7 +16,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>TAULUKOT</title>';
 
-include("header.php");
+include("ylatunniste.php");
 
 
 echo' <body>
@@ -69,7 +69,7 @@ echo'<div class="vali"></div>';
 
 echo'</div>';
 
-include("footer.php");
+include("alatunniste.php");
 
 echo '</body>
 </html>';

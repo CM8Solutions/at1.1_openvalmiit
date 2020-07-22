@@ -15,7 +15,7 @@ echo'<!DOCTYPE html>
 
 session_start(); // ready to go!
 
-include("header.php");
+include("ylatunniste.php");
 echo '<div>';
 if (empty($_POST[lahettaja]) || empty($_POST[viesti]) || empty($_POST[otsikko])) {
     echo'<p>Et täyttänyt kaikkia kenttiä!</p>';
@@ -53,7 +53,7 @@ if (empty($_POST[lahettaja]) || empty($_POST[viesti]) || empty($_POST[otsikko]))
 echo'</div>';
 echo'</div>';
 
-include("footer.php");
+include("alatunniste.php");
 ?>
 </body>
 </html>			

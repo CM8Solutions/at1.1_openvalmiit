@@ -4,7 +4,7 @@ ob_start();
 echo'<!DOCTYPE html><html> 
 <head>
 <title> TIEDOSTON LÄHETYS </title>';
-include("header.php");
+include("ylatunniste.php");
 include("tietokantayhteys.php");
 require_once("tiedoston_lahetys.php");
 
@@ -123,7 +123,7 @@ echo'</div>';
 
 
 
-include("footer.php");
+include("alatunniste.php");
 ?>
 
 </body>

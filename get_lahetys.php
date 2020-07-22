@@ -16,7 +16,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>GET-lomakkeen lähetys</title>';
 
-include("header.php");
+include("ylatunniste.php");
 
 
 echo' <body>
@@ -35,7 +35,7 @@ if (!empty($_GET[arvo])) {
 
 echo'</div>';
 
-include("footer.php");
+include("alatunniste.php");
 
 echo '</body>
 </html>';

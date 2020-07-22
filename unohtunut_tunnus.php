@@ -7,7 +7,7 @@ echo'<!DOCTYPE html>
 <html>
     <head>
         <title>Unohtunut tunnus/salasana</title>';
-include("header.php");
+include("ylatunniste.php");
 
 
 
@@ -38,7 +38,7 @@ echo'  <body>
         </div>';
 
 
-include('footer.php');
+include('alatunniste.php');
 
 echo '</body>
 </html>';

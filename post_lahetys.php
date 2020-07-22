@@ -16,7 +16,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>POST-lomakkeen lähetys</title>';
 
-include("header.php");
+include("ylatunniste.php");
 
 
 echo' <body>
@@ -34,7 +34,7 @@ if (!empty($_POST[arvo])) {
 
 echo'</div>';
 
-include("footer.php");
+include("alatunniste.php");
 
 echo '</body>
 </html>';

@@ -14,7 +14,7 @@ echo'<!DOCTYPE html>
 <html>
     <head>
         <title>Poistu järjestelmästä</title>';
-include("header.php");
+include("ylatunniste.php");
 include("tietokantayhteys.php");
 
 
@@ -87,7 +87,7 @@ if ($_POST[valinta] == "en") {
 
 echo'</div>';
 
-include('footer.php');
+include('alatunniste.php');
 
 echo '</body>
 </html>';

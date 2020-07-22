@@ -16,7 +16,7 @@ echo'<!DOCTYPE html>
     <head>
         <title>TIETOJEN TALLENNUS</title>';
 
-include("header.php");
+include("ylatunniste.php");
 
 
 echo' <body>
@@ -38,7 +38,7 @@ echo' <p><a href="etusivu.php"> &#8617 &nbsp  Palaa etusivulle </a></p>';
 
 echo'</div>';
 
-include("footer.php");
+include("alatunniste.php");
 
 echo '</body>
 </html>';

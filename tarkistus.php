@@ -13,7 +13,7 @@ echo'<!DOCTYPE html>
 <html>
     <head>
         <title>Kirjautumisen tarkistus</title>';
-include("header.php");
+include("ylatunniste.php");
 include("tietokantayhteys.php");
 
 
@@ -114,7 +114,7 @@ if (empty($_POST[tunnus]) || empty($_POST[salasana])) {
 
 echo'</div>';
 
-include('footer.php');
+include('alatunniste.php');
 
 echo '</body>
 </html>';

@@ -7,7 +7,7 @@ echo'<!DOCTYPE html>
 <html>
     <head>
         <title>Rekisteröityminen</title>';
-include("header.php");
+include("ylatunniste.php");
 
 
 
@@ -88,7 +88,7 @@ echo'</select>
         </div>';
 
 
-include('footer.php');
+include('alatunniste.php');
 
 echo '</body>
 </html>';

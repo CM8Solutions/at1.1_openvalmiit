@@ -12,7 +12,7 @@ echo'<!DOCTYPE html>
 <html>
     <head>
         <title>Tunnuksen uudelleen aktivointi</title>';
-include("header.php");
+include("ylatunniste.php");
 include("tietokantayhteys.php");
 
 
@@ -95,7 +95,7 @@ if (empty($_POST[sposti])) {
 
 echo'</div>';
 
-include('footer.php');
+include('alatunniste.php');
 
 echo '</body>
 </html>';
