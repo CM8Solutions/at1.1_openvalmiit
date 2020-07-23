@@ -1,0 +1,74 @@
+ENNEN KUN KURSSI ALKAA:    LUO KANSIOITA PALVELIMELLE  (opiskelijan kansion nimi=opiskelijan nimi)
+
+
+********  KUN ALOITETAAN KOODAAMAAN ***************** 
+
+1) NÄYTÄ HTML W2schoolsissa
+(UTF-8 enkoodaus ei toimi Netbensissa muissa ku php-tiedostoissa, syy tallennusmuoto UTF-8 (without bom)
+
+2) LUODAAN UUSI NetBeans-projekti (tyhjä)
+- Run As (Remote Connection)
+- Project URL (opettaja):  https://syksy2020.tylykoodaa.fi/
+
+3) TEHDÄÄN REMOTE CONNECTION:
+ftp2.shellit.org
+u60244
+atsjm2020
+initial directory: /
+
+4) UPLOAD DIRECTORY (opettaja): (/syksy2020/ope)
+RUN AS: On Save
+
+5) LUODAAN TIETOKANTA
+
+6) LUODAAN tietokantatietokantayhteys.php-tiedosto
+
+7) OPEN MALLI php-tiedostot, jossa seuraavia:
+
+* index.html -> etusivu.html
+*	<title><footer>
+*	<p> Hello World </p>
+*	<a>, <img>, <ul>, <ol>, <li>, <header>, <h1> / <h2> jne. , <div>
+(kuvista linkki: https://imgur.com/upload)
+*	CSS-koodia tägien sisään ja erillinen tiedosto ulkoasu.css
+*       Rekisteröityminen -> <form>
+*       Käyttäjät -> <table>
+*       Favicon
+*       Kirjautuminen + session
+*       Extra-harjoittelua: while, do while, array, tiedoston lisäys, javascripit + jquery, responsiivisuus @media screen
+
+-> 	mallit Cuulikseen Materiaaleissa
+
+
+*********   TIEDOT ********************
+
+TUNNARI:
+
+u60224
+
+SALASANA (ftp+tietokanta)
+
+atsjm2020
+
+
+FTP-PALVELIN:
+
+ftp2.shellit.org
+
+
+TIETOKANTA-PALVELIN:
+
+mysql2.shellit.org 
+
+osoite:  phpmyadmin.shellit.org
+server choice:  sql2.shellit.org
+
+OPETTAJAN ESIMERKKITIEDOSTOJEN GIT-osoite (aluksi tyhjä):
+
+https://github.com/CM8Solutions/at1.1_tylykoodaa
+
+----------------------------------------------------------------------------------------------
+
+
+
+
